@@ -13,11 +13,9 @@
 site:
   name: Altify Apps
   tagline: Status page for Altify apps
-  url: https://9leedev.github.io/leesifystatus
-  # A GitHub Pages *project* site is served from /<repo>, so the static export
-  # has to be built with that prefix. Set to "" for a user site or a custom
-  # domain, and the workflow will pick the change up on the next deploy.
-  basePath: /leesifystatus
+  url: https://status.altifysolutions.com
+  # Custom domain is served from the site root (not /<repo>).
+  basePath: ""
 
 # Where the check results are committed, and where the site reads them back
 # from through the GitHub API. These two fields tie the halves together.
@@ -68,52 +66,38 @@ notifications:
   webhooks: []
 
 monitors:
-  - id: kichaka
-    name: Kichaka
-    url: https://kichaka.top
+  - id: leefipay
+    name: LeeFi Pay
+    url: https://leefipay.com
     tags: [production, web]
 
-  - id: kfs
-    name: KFS
-    url: https://hr.kenyaforestservice.org
-    tags: [production, web]
-    description: Kenya Forest Service HR portal.
-
-  - id: kimap
-    name: KIMAP
-    url: https://kimap.org
+  - id: leesifyapp
+    name: Leesify App
+    url: https://leesifyapp.com
     tags: [production, web]
 
-  - id: protouch
-    name: Protouch
-    url: https://protouch.co.ke
+  - id: tixvora
+    name: Tixvora
+    url: https://tixvora.com
     tags: [production, web]
 
-  - id: kfc
-    name: KFC
-    url: https://kfc.ac.ke
+  - id: client-portal
+    name: Client Portal
+    url: http://client.app.altifysolutions.com
+    tags: [production, app]
+    description: Altify Client CRM
+
+  - id: hrmsuite
+    name: HRM Suite
+    url: http://hrmsuite.app.altifysolutions.com
+    tags: [production, app]
+
+  - id: leesify
+    name: Leesify
+    url: https://leesify.com
     tags: [production, web]
 
-  - id: campaign-top
-    name: CampaignHQ
-    url: https://campaignhq.top
-    tags: [prod, live]
-
-  - id: cecebeauty
-    name: Cece Beauty
-    url: https://cecebeauty.co.ke
-    tags: [prod, web]
-
-  # Protected. Checked and alerted on exactly like the others, but published
-  # only into api/secure.json, which is AES-GCM ciphertext sealed with the
-  # UPSITE_SECURE_KEY repository secret. The protected tab asks for that key
-  # and decrypts it in the browser.
-  #
-  # Caveat worth knowing: history/simba.yml is still committed in the clear,
-  # and this config names the URL either way. What the key protects is the
-  # status, latency and incident data — not the fact that the site exists.
-  - id: simba
-    name: Simba 2027
-    url: https://bitok.campaignhq.top
-    secure: true
-    tags: [private]
+  - id: leesifytechnologies
+    name: Leesify Technologies
+    url: http://leesifytechnologies.com
+    tags: [production, web]
