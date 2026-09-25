@@ -13,22 +13,42 @@
   "state": {
     "status": "pending",
     "since": 1790339046521,
-    "lastCheck": 1790339046521,
-    "consecutiveFailures": 0
+    "lastCheck": 1790340785784,
+    "lastLatency": 126,
+    "lastCode": 500,
+    "lastError": "Unexpected status 500 Internal Server Error",
+    "consecutiveFailures": 1
   },
-  "recent": [],
-  "daily": [],
+  "recent": [
+    {
+      "t": 1790340785784,
+      "s": "up",
+      "ms": 126,
+      "c": 500,
+      "e": "Unexpected status 500 Internal Server Error"
+    }
+  ],
+  "daily": [
+    {
+      "d": "2026-09-25",
+      "n": 1,
+      "down": 1,
+      "deg": 0,
+      "sum": 126,
+      "max": 126
+    }
+  ],
   "uptime": {
-    "day": null,
-    "week": null,
-    "month": null,
-    "quarter": null
+    "day": 0,
+    "week": 0,
+    "month": 0,
+    "quarter": 0
   },
   "latency": {
-    "avg": null,
-    "p95": null,
-    "min": null,
-    "max": null
+    "avg": 126,
+    "p95": 126,
+    "min": 126,
+    "max": 126
   },
   "incidents": []
 }

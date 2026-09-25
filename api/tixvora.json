@@ -11,24 +11,42 @@
   "secure": false,
   "intervalSeconds": 300,
   "state": {
-    "status": "pending",
-    "since": 1790339046517,
-    "lastCheck": 1790339046517,
+    "status": "up",
+    "since": 1790340784572,
+    "lastCheck": 1790340784572,
+    "lastLatency": 316,
+    "lastCode": 200,
     "consecutiveFailures": 0
   },
-  "recent": [],
-  "daily": [],
+  "recent": [
+    {
+      "t": 1790340784572,
+      "s": "up",
+      "ms": 316,
+      "c": 200
+    }
+  ],
+  "daily": [
+    {
+      "d": "2026-09-25",
+      "n": 1,
+      "down": 0,
+      "deg": 0,
+      "sum": 316,
+      "max": 316
+    }
+  ],
   "uptime": {
-    "day": null,
-    "week": null,
-    "month": null,
-    "quarter": null
+    "day": 1,
+    "week": 1,
+    "month": 1,
+    "quarter": 1
   },
   "latency": {
-    "avg": null,
-    "p95": null,
-    "min": null,
-    "max": null
+    "avg": 316,
+    "p95": 316,
+    "min": 316,
+    "max": 316
   },
   "incidents": []
 }

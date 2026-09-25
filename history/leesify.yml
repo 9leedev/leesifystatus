@@ -3,20 +3,23 @@ name: Leesify
 target: https://leesify.com
 status: pending
 since: 2026-09-25T12:24:06.521Z
-lastUpdated: 2026-09-25T12:24:06.521Z
-consecutiveFailures: 0
+lastUpdated: 2026-09-25T12:53:05.784Z
+consecutiveFailures: 1
 consecutiveDegraded: 0
 today:
   d: 2026-09-25
-  n: 0
-  down: 0
+  n: 1
+  down: 1
   deg: 0
-  sum: 0
-  max: 0
+  sum: 126
+  max: 126
 window:
   d: 2026-09-25T12:24:06.521Z
-  n: 0
-  down: 0
+  n: 1
+  down: 1
   deg: 0
-  sum: 0
-  max: 0
+  sum: 126
+  max: 126
+responseTime: 126
+code: 500
+error: Unexpected status 500 Internal Server Error
