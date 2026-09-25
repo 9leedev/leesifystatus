@@ -20,10 +20,9 @@
   },
   "recent": [
     {
-      "t": 1790368404004,
-      "s": "up",
-      "ms": 25,
-      "c": 200
+      "t": 1790369414621,
+      "s": "down",
+      "ms": 63
     }
   ],
   "daily": [
@@ -43,10 +42,10 @@
     "quarter": 0.75
   },
   "latency": {
-    "avg": 25,
-    "p95": 25,
-    "min": 25,
-    "max": 25
+    "avg": null,
+    "p95": null,
+    "min": null,
+    "max": null
   },
   "incidents": []
 }
