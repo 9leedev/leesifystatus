@@ -51,7 +51,7 @@ export function MonitorCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.4), ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        "glass bevel group relative overflow-hidden rounded-2xl border p-5",
+        "glass bevel group relative overflow-hidden rounded-2xl border p-4 sm:p-5",
         "transition-colors duration-300 hover:border-edge-bright",
         style.border,
       )}
@@ -104,7 +104,7 @@ export function MonitorCard({
           <Sparkline checks={monitor.recent} />
         </div>
 
-        <div className="mt-4 grid grid-cols-4 gap-3 border-t border-edge/70 pt-3">
+        <div className="mt-4 grid grid-cols-2 gap-3 border-t border-edge/70 pt-3 sm:grid-cols-4">
           <Stat
             label="24h"
             value={formatUptime(monitor.uptime.day)}

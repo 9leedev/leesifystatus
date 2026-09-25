@@ -26,13 +26,12 @@ function ConnectionPill({ connection }: { connection: Connection }) {
     return (
       <span className="inline-flex items-center gap-1.5 rounded-full border border-down/30 bg-down/10 px-2.5 py-1 text-[11px] text-down">
         <WifiOff className="h-3 w-3" />
-        Cannot reach GitHub
+        <span className="sm:hidden">Offline</span>
+        <span className="hidden sm:inline">Cannot reach GitHub</span>
       </span>
     );
   }
 
-  // The workflow runs every five minutes. Data older than that means a run was
-  // skipped or is queued — worth saying, rather than presenting it as current.
   if (connection === "stale") {
     return (
       <span className="inline-flex items-center gap-1.5 rounded-full border border-degraded/30 bg-degraded/10 px-2.5 py-1 text-[11px] text-degraded">
@@ -91,38 +90,40 @@ export function StatusHeader({
 
   return (
     <header className="relative">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div className="flex items-center gap-2.5">
-          <Activity className="h-5 w-5 text-signal" />
-          <span className="text-sm font-semibold tracking-[0.2em] text-ink uppercase">
-            {snapshot.site.name}
-          </span>
-          {snapshot.site.tagline && (
-            <span className="hidden text-xs text-ink-faint sm:inline">
-              {snapshot.site.tagline}
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2.5">
+            <Activity className="h-5 w-5 shrink-0 text-signal" />
+            <span className="text-sm font-semibold tracking-[0.18em] text-ink uppercase sm:tracking-[0.2em]">
+              {snapshot.site.name}
             </span>
+          </div>
+          {snapshot.site.tagline && (
+            <p className="mt-1 pl-[1.875rem] text-xs text-ink-faint">{snapshot.site.tagline}</p>
           )}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2 pl-[1.875rem] sm:pl-0">
           <ConnectionPill connection={connection} />
           <button
             type="button"
             onClick={onRefresh}
             disabled={refreshing}
-            className="inline-flex items-center gap-1.5 rounded-full border border-edge bg-abyss px-3 py-1 text-[11px] text-ink-dim transition hover:border-signal/40 hover:text-signal disabled:opacity-50"
+            aria-label={refreshing ? "Refreshing" : "Refresh"}
+            className="inline-flex items-center gap-1.5 rounded-full border border-edge bg-abyss px-3 py-1.5 text-[11px] text-ink-dim transition hover:border-signal/40 hover:text-signal disabled:opacity-50 sm:py-1"
           >
             <RefreshCw className={cn("h-3 w-3", refreshing && "animate-spin")} />
-            {refreshing ? "Refreshing…" : "Refresh"}
+            <span className="hidden sm:inline">{refreshing ? "Refreshing…" : "Refresh"}</span>
           </button>
           <a
             href={repoUrl(source)}
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex items-center gap-1.5 rounded-full border border-edge bg-abyss px-3 py-1 text-[11px] text-ink-dim transition hover:border-signal/40 hover:text-signal"
+            aria-label="Source data on GitHub"
+            className="inline-flex items-center gap-1.5 rounded-full border border-edge bg-abyss px-3 py-1.5 text-[11px] text-ink-dim transition hover:border-signal/40 hover:text-signal sm:py-1"
           >
             <Github className="h-3 w-3" />
-            Source data
+            <span className="hidden sm:inline">Source data</span>
           </a>
         </div>
       </div>
@@ -131,21 +132,19 @@ export function StatusHeader({
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="glass bevel mt-6 overflow-hidden rounded-3xl border border-edge p-8"
+        className="glass bevel relative mt-5 overflow-hidden rounded-2xl border border-edge p-5 sm:mt-6 sm:rounded-3xl sm:p-8"
       >
-        {/* A single sweep of light across the banner — the one piece of motion
-            that says "this page is live" without competing with the data. */}
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px overflow-hidden">
           <div className="animate-sweep h-px w-1/3 bg-gradient-to-r from-transparent via-signal to-transparent" />
         </div>
 
-        <div className="flex flex-wrap items-end justify-between gap-8">
-          <div>
-            <div className="flex items-center gap-3">
+        <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-8">
+          <div className="min-w-0">
+            <div className="flex items-start gap-3 sm:items-center">
               <StatusDot status={snapshot.overall} size="lg" />
               <h1
                 className={cn(
-                  "text-2xl font-semibold tracking-tight sm:text-3xl",
+                  "text-xl font-semibold tracking-tight sm:text-2xl md:text-3xl",
                   style.text,
                   style.glow,
                 )}
@@ -153,20 +152,28 @@ export function StatusHeader({
                 {OVERALL_HEADLINE[snapshot.overall]}
               </h1>
             </div>
-            <p className="mt-2 text-sm text-ink-dim">
+            <p className="mt-2 text-xs leading-relaxed text-ink-dim sm:text-sm">
               Monitoring {snapshot.monitors.length} endpoint
-              {snapshot.monitors.length === 1 ? "" : "s"} from GitHub Actions · last
-              check <span className="font-mono">{formatClock(snapshot.generatedAt)}</span>
+              {snapshot.monitors.length === 1 ? "" : "s"} · last check{" "}
+              <span className="font-mono">{formatClock(snapshot.generatedAt)}</span>
             </p>
           </div>
 
-          <dl className="flex gap-8">
+          <dl className="grid w-full grid-cols-2 gap-3 sm:flex sm:w-auto sm:gap-8">
             {figures.map((figure) => (
-              <div key={figure.label}>
-                <dd className={cn("font-mono text-2xl", figure.value > 0 ? figure.tone : "text-ink-faint")}>
+              <div
+                key={figure.label}
+                className="rounded-xl border border-edge/60 bg-abyss/40 px-3 py-2.5 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0"
+              >
+                <dd
+                  className={cn(
+                    "font-mono text-xl sm:text-2xl",
+                    figure.value > 0 ? figure.tone : "text-ink-faint",
+                  )}
+                >
                   {figure.value}
                 </dd>
-                <dt className="mt-1 text-[10px] uppercase tracking-wider text-ink-faint">
+                <dt className="mt-0.5 text-[10px] uppercase tracking-wider text-ink-faint">
                   {figure.label}
                 </dt>
               </div>

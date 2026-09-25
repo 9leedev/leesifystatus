@@ -9,7 +9,9 @@ import { UptimeBars } from "./uptime-bars";
 import { StatusLegend } from "./latency-chart";
 import { ProtectedPanel } from "./protected-panel";
 import { AddMonitorDialog } from "./add-monitor-dialog";
+import { SiteFooter } from "./site-footer";
 import { useStatus } from "@/hooks/use-status";
+import type { UpsiteConfig } from "@/lib/config";
 import { cn, formatUptime } from "@/lib/format";
 import { issuesUrl, type Source } from "@/lib/source";
 import type { MonitorStatus, StatusSnapshot } from "@/lib/types";
@@ -29,6 +31,7 @@ export function Dashboard({
   source,
   incidentLabels,
   hasProtected,
+  contact,
 }: {
   /** Baked into the export at build time, so the first paint is never empty. */
   initial: StatusSnapshot;
@@ -36,6 +39,7 @@ export function Dashboard({
   incidentLabels: string[];
   /** Whether any monitor is marked `secure`, so the tab is only shown if used. */
   hasProtected: boolean;
+  contact?: UpsiteConfig["site"]["contact"];
 }) {
   const { snapshot, connection, refresh, refreshing } = useStatus(initial, source);
   const [query, setQuery] = useState("");
@@ -83,7 +87,10 @@ export function Dashboard({
   }, [monitors]);
 
   return (
-    <main id="main" className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8">
+    <main
+      id="main"
+      className="mx-auto w-full max-w-7xl px-4 py-6 pb-10 sm:px-6 sm:py-10 lg:px-8"
+    >
       <StatusHeader
         snapshot={snapshot}
         connection={connection}
@@ -92,8 +99,12 @@ export function Dashboard({
         source={source}
       />
 
-      <nav className="mt-8 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex gap-1.5" role="tablist" aria-label="Monitor groups">
+      <nav className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+        <div
+          className="flex gap-1.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          role="tablist"
+          aria-label="Monitor groups"
+        >
           {(
             [
               { value: "public", label: "Public", icon: Globe, count: monitors.length },
@@ -112,7 +123,7 @@ export function Dashboard({
                   aria-selected={active}
                   onClick={() => setTab(t.value)}
                   className={cn(
-                    "inline-flex items-center gap-2 rounded-xl border px-3.5 py-2 text-xs transition",
+                    "inline-flex shrink-0 items-center gap-2 rounded-xl border px-3.5 py-2.5 text-xs transition sm:py-2",
                     active
                       ? "border-signal/40 bg-signal/10 text-signal"
                       : "border-edge bg-abyss/60 text-ink-dim hover:text-ink",
@@ -130,144 +141,152 @@ export function Dashboard({
             })}
         </div>
 
-        <AddMonitorDialog source={source} />
+        <div className="self-start sm:self-auto">
+          <AddMonitorDialog source={source} />
+        </div>
       </nav>
 
       {tab === "protected" && <ProtectedPanel source={source} />}
 
       <div hidden={tab !== "public"}>
-      {/* Filters live in one row above the data, never beside it. */}
-      <section className="mt-6 flex flex-wrap items-center gap-3">
-        <div className="relative min-w-[200px] flex-1">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink-faint" />
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Filter monitors…"
-            aria-label="Filter monitors"
-            className="w-full rounded-xl border border-edge bg-abyss/70 py-2 pl-9 pr-3 text-sm text-ink placeholder:text-ink-faint focus:border-signal/50 focus:outline-none"
-          />
-        </div>
+        <section className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center">
+          <div className="relative w-full min-w-0 sm:min-w-[200px] sm:flex-1">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink-faint" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Filter monitors…"
+              aria-label="Filter monitors"
+              className="w-full rounded-xl border border-edge bg-abyss/70 py-2.5 pl-9 pr-3 text-sm text-ink placeholder:text-ink-faint focus:border-signal/50 focus:outline-none sm:py-2"
+            />
+          </div>
 
-        <div className="flex flex-wrap gap-1.5" role="group" aria-label="Filter by status">
-          {STATUS_FILTERS.map((filter) => (
-            <button
-              key={filter.value}
-              type="button"
-              onClick={() => setStatus(filter.value)}
-              aria-pressed={status === filter.value}
-              className={cn(
-                "rounded-lg border px-2.5 py-1.5 text-[11px] transition",
-                status === filter.value
-                  ? "border-signal/40 bg-signal/10 text-signal"
-                  : "border-edge bg-abyss/60 text-ink-dim hover:text-ink",
-              )}
-            >
-              {filter.label}
-            </button>
-          ))}
-        </div>
-
-        {tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5" role="group" aria-label="Filter by tag">
-            {tags.map((t) => (
+          <div
+            className="flex gap-1.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            role="group"
+            aria-label="Filter by status"
+          >
+            {STATUS_FILTERS.map((filter) => (
               <button
-                key={t}
+                key={filter.value}
                 type="button"
-                onClick={() => setTag(tag === t ? null : t)}
-                aria-pressed={tag === t}
+                onClick={() => setStatus(filter.value)}
+                aria-pressed={status === filter.value}
                 className={cn(
-                  "rounded-lg border px-2.5 py-1.5 text-[11px] transition",
-                  tag === t
+                  "shrink-0 rounded-lg border px-2.5 py-2 text-[11px] transition sm:py-1.5",
+                  status === filter.value
                     ? "border-signal/40 bg-signal/10 text-signal"
                     : "border-edge bg-abyss/60 text-ink-dim hover:text-ink",
                 )}
               >
-                #{t}
+                {filter.label}
               </button>
             ))}
           </div>
-        )}
-      </section>
 
-      <section className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {visible.map((monitor, i) => (
-          <MonitorCard key={monitor.id} monitor={monitor} index={i} />
-        ))}
-      </section>
-
-      {visible.length === 0 && (
-        <p className="mt-10 text-center text-sm text-ink-faint">
-          {monitors.length === 0
-            ? "No monitors configured yet."
-            : "No monitors match this filter."}
-        </p>
-      )}
-
-      <section className="mt-12 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
-        <div className="glass bevel rounded-2xl border border-edge p-6">
-          <div className="flex items-baseline justify-between gap-4">
-            <div>
-              <h2 className="text-sm font-medium tracking-wide text-ink">Fleet uptime</h2>
-              <p className="mt-0.5 text-xs text-ink-faint">
-                Last 90 days across every monitor
-              </p>
-            </div>
-            <span className="font-mono text-2xl text-ink">{formatUptime(fleetUptime)}</span>
-          </div>
-
-          <div className="mt-5 space-y-3">
-            {monitors.map((monitor) => (
-              <div key={monitor.id} className="grid grid-cols-[7rem_1fr_3.5rem] items-center gap-3">
-                <span className="truncate text-xs text-ink-dim" title={monitor.name}>
-                  {monitor.name}
-                </span>
-                <UptimeBars daily={monitor.daily} days={45} />
-                <span className="text-right font-mono text-[11px] text-ink-dim">
-                  {formatUptime(monitor.uptime.quarter ?? monitor.uptime.day)}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-5 border-t border-edge/70 pt-4">
-            <StatusLegend />
-          </div>
-        </div>
-
-        <div>
-          <div className="flex items-baseline justify-between gap-3">
-            <h2 className="text-sm font-medium tracking-wide text-ink">Incident log</h2>
-            <a
-              href={issuesUrl(source, incidentLabels)}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-1 text-[11px] text-ink-faint transition hover:text-signal"
+          {tags.length > 0 && (
+            <div
+              className="flex gap-1.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              role="group"
+              aria-label="Filter by tag"
             >
-              All issues
-              <ExternalLink className="h-3 w-3" />
-            </a>
-          </div>
-          <p className="mb-4 mt-0.5 text-xs text-ink-faint">
-            Each outage opens a GitHub issue, is reported on in its comments, and closes
-            itself on recovery
-          </p>
-          <IncidentFeed incidents={snapshot.incidents} names={names} />
-        </div>
-      </section>
+              {tags.map((t) => (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={() => setTag(tag === t ? null : t)}
+                  aria-pressed={tag === t}
+                  className={cn(
+                    "shrink-0 rounded-lg border px-2.5 py-2 text-[11px] transition sm:py-1.5",
+                    tag === t
+                      ? "border-signal/40 bg-signal/10 text-signal"
+                      : "border-edge bg-abyss/60 text-ink-dim hover:text-ink",
+                  )}
+                >
+                  #{t}
+                </button>
+              ))}
+            </div>
+          )}
+        </section>
 
+        <section className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
+          {visible.map((monitor, i) => (
+            <MonitorCard key={monitor.id} monitor={monitor} index={i} />
+          ))}
+        </section>
+
+        {visible.length === 0 && (
+          <p className="mt-10 text-center text-sm text-ink-faint">
+            {monitors.length === 0
+              ? "No monitors configured yet."
+              : "No monitors match this filter."}
+          </p>
+        )}
+
+        <section className="mt-10 grid gap-6 sm:mt-12 lg:grid-cols-[1.15fr_1fr]">
+          <div className="glass bevel rounded-2xl border border-edge p-4 sm:p-6">
+            <div className="flex items-baseline justify-between gap-4">
+              <div>
+                <h2 className="text-sm font-medium tracking-wide text-ink">Fleet uptime</h2>
+                <p className="mt-0.5 text-xs text-ink-faint">
+                  Last 90 days across every monitor
+                </p>
+              </div>
+              <span className="font-mono text-xl text-ink sm:text-2xl">
+                {formatUptime(fleetUptime)}
+              </span>
+            </div>
+
+            <div className="mt-5 space-y-3">
+              {monitors.map((monitor) => (
+                <div
+                  key={monitor.id}
+                  className="grid grid-cols-[minmax(0,5.5rem)_1fr_2.75rem] items-center gap-2 sm:grid-cols-[7rem_1fr_3.5rem] sm:gap-3"
+                >
+                  <span
+                    className="truncate text-[11px] text-ink-dim sm:text-xs"
+                    title={monitor.name}
+                  >
+                    {monitor.name}
+                  </span>
+                  <UptimeBars daily={monitor.daily} days={45} />
+                  <span className="text-right font-mono text-[10px] text-ink-dim sm:text-[11px]">
+                    {formatUptime(monitor.uptime.quarter ?? monitor.uptime.day)}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-5 border-t border-edge/70 pt-4">
+              <StatusLegend />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-baseline justify-between gap-3">
+              <h2 className="text-sm font-medium tracking-wide text-ink">Incident log</h2>
+              <a
+                href={issuesUrl(source, incidentLabels)}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-1 text-[11px] text-ink-faint transition hover:text-signal"
+              >
+                All issues
+                <ExternalLink className="h-3 w-3" />
+              </a>
+            </div>
+            <p className="mb-4 mt-0.5 text-xs text-ink-faint">
+              Each outage opens a GitHub issue, is reported on in its comments, and closes
+              itself on recovery
+            </p>
+            <IncidentFeed incidents={snapshot.incidents} names={names} />
+          </div>
+        </section>
       </div>
 
-      <footer className="mt-14 border-t border-edge/70 pt-6 text-[11px] text-ink-faint">
-        <p>
-          Checked every 5 minutes by GitHub Actions · results committed to{" "}
-          <code className="text-ink-dim">
-            {source.owner}/{source.name}
-          </code>{" "}
-          · configured in <code className="text-ink-dim">upsite.config.yaml</code>
-        </p>
-      </footer>
+      <SiteFooter contact={contact} source={source} />
     </main>
   );
 }

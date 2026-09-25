@@ -156,6 +156,17 @@ const configSchema = z.object({
         .string()
         .regex(/^(|\/[a-z0-9._-]+)$/i, 'basePath must be empty or start with "/"')
         .default(""),
+      /** Shown on the status site footer so people know who to reach. */
+      contact: z
+        .object({
+          email: z.string().email().optional(),
+          phone: z.string().optional(),
+          whatsapp: z.string().optional(),
+          office: z.string().optional(),
+          hours: z.string().optional(),
+          website: z.string().url().optional(),
+        })
+        .optional(),
     })
     .default({ name: "Upsite" }),
 

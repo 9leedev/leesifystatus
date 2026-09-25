@@ -16,6 +16,13 @@ site:
   url: https://status.altifysolutions.com
   # Custom domain is served from the site root (not /<repo>).
   basePath: ""
+  contact:
+    email: info@altifysolutions.com
+    phone: "+254 768 092 345"
+    whatsapp: "+254768092345"
+    office: Kasarani, Seasons Rd, Nairobi
+    hours: "Mon – Sat: 8 am – 5 pm · Sunday closed"
+    website: https://altifysolutions.com
 
 # Where the check results are committed, and where the site reads them back
 # from through the GitHub API. These two fields tie the halves together.

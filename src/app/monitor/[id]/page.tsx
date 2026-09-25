@@ -28,6 +28,10 @@ export default async function MonitorPage({ params }: { params: Promise<{ id: st
   if (!monitor) notFound();
 
   return (
-    <MonitorDetail initial={buildMonitor(id)} source={buildSource(config)} />
+    <MonitorDetail
+      initial={buildMonitor(id)}
+      source={buildSource(config)}
+      contact={config.site.contact}
+    />
   );
 }

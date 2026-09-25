@@ -7,6 +7,7 @@ import { LatencyChart, StatusLegend } from "./latency-chart";
 import { UptimeBars } from "./uptime-bars";
 import { IncidentFeed } from "./incident-feed";
 import { StatusDot } from "./status-dot";
+import { SiteFooter } from "./site-footer";
 import {
   cn,
   formatClock,
@@ -16,6 +17,7 @@ import {
   STATUS_LABEL,
   STATUS_STYLE,
 } from "@/lib/format";
+import type { UpsiteConfig } from "@/lib/config";
 import { badgeUrl, fetchMonitor, type Source } from "@/lib/source";
 import type { MonitorReport } from "@/lib/types";
 
@@ -49,9 +51,11 @@ const POLL_MS = 120_000;
 export function MonitorDetail({
   initial,
   source,
+  contact,
 }: {
   initial: MonitorReport;
   source: Source;
+  contact?: UpsiteConfig["site"]["contact"];
 }) {
   const [report, setReport] = useState(initial);
   const [refreshing, setRefreshing] = useState(false);
@@ -86,7 +90,7 @@ export function MonitorDetail({
   const style = STATUS_STYLE[monitor.state.status];
 
   return (
-    <main id="main" className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8">
+    <main id="main" className="mx-auto w-full max-w-6xl px-4 py-6 pb-10 sm:px-6 sm:py-10 lg:px-8">
       <Link
         href="/"
         className="inline-flex items-center gap-1.5 text-xs text-ink-dim transition hover:text-signal"
@@ -95,12 +99,12 @@ export function MonitorDetail({
         All monitors
       </Link>
 
-      <header className="glass bevel mt-5 rounded-2xl border border-edge p-7">
-        <div className="flex flex-wrap items-start justify-between gap-5">
+      <header className="glass bevel mt-5 rounded-2xl border border-edge p-5 sm:p-7">
+        <div className="flex flex-wrap items-start justify-between gap-4 sm:gap-5">
           <div className="min-w-0">
             <div className="flex items-center gap-3">
               <StatusDot status={monitor.state.status} size="lg" />
-              <h1 className="truncate text-2xl font-semibold text-ink">{monitor.name}</h1>
+              <h1 className="truncate text-xl font-semibold text-ink sm:text-2xl">{monitor.name}</h1>
             </div>
 
             <p className={cn("mt-2 text-sm font-medium", style.text)}>
@@ -112,14 +116,14 @@ export function MonitorDetail({
               </span>
             </p>
 
-            <p className="mt-2 flex items-center gap-1.5 font-mono text-xs text-ink-dim">
+            <p className="mt-2 flex items-center gap-1.5 break-all font-mono text-xs text-ink-dim">
               {monitor.target}
               {monitor.url && (
                 <a
                   href={monitor.url}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="text-ink-faint transition hover:text-signal"
+                  className="shrink-0 text-ink-faint transition hover:text-signal"
                   aria-label="Open target in a new tab"
                 >
                   <ExternalLink className="h-3 w-3" />
@@ -172,17 +176,17 @@ export function MonitorDetail({
         />
       </section>
 
-      <section className="glass bevel mt-6 rounded-2xl border border-edge p-6">
+      <section className="glass bevel mt-6 rounded-2xl border border-edge p-4 sm:p-6">
         <h2 className="text-sm font-medium text-ink">Response time</h2>
-        {/* The unit lives here rather than on the axis, where a rotated label
-            collides with the topmost tick. */}
         <p className="mb-4 mt-0.5 text-xs text-ink-faint">
           Milliseconds · one point per 6-hour recording, oldest to newest
         </p>
-        <LatencyChart checks={monitor.recent} />
+        <div className="-mx-1 overflow-x-auto sm:mx-0">
+          <LatencyChart checks={monitor.recent} />
+        </div>
       </section>
 
-      <section className="glass bevel mt-6 rounded-2xl border border-edge p-6">
+      <section className="glass bevel mt-6 rounded-2xl border border-edge p-4 sm:p-6">
         <h2 className="text-sm font-medium text-ink">Daily uptime</h2>
         <p className="mb-4 mt-0.5 text-xs text-ink-faint">
           One bar per day over the last 90 days
@@ -205,7 +209,7 @@ export function MonitorDetail({
         />
       </section>
 
-      <section className="glass mt-8 rounded-2xl border border-edge p-6">
+      <section className="glass mt-8 rounded-2xl border border-edge p-4 sm:p-6">
         <h2 className="text-sm font-medium text-ink">Embeddable badges</h2>
         <p className="mb-4 mt-0.5 text-xs text-ink-faint">
           shields.io rendering the endpoint files this monitor commits to the repository
@@ -226,6 +230,7 @@ export function MonitorDetail({
         </pre>
       </section>
 
+      <SiteFooter contact={contact} source={source} />
     </main>
   );
 }
