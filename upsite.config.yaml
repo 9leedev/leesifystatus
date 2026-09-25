@@ -1,0 +1,119 @@
+# ---------------------------------------------------------------------------
+# Upsite — the entire platform is configured from this one file.
+#
+# There is no database and no server. GitHub Actions runs the checks, this
+# repository stores the results, GitHub Issues holds the incident reports and
+# GitHub Pages serves the status site. Add a monitor here, push, and it starts
+# being checked on the next 5-minute tick.
+#
+# Values may reference environment variables as ${VAR}, so tokens and internal
+# hostnames never have to be committed.
+# ---------------------------------------------------------------------------
+
+site:
+  name: Altify Apps
+  tagline: Status page for Altify apps
+  url: https://9leedev.github.io/leesifystatus
+  # A GitHub Pages *project* site is served from /<repo>, so the static export
+  # has to be built with that prefix. Set to "" for a user site or a custom
+  # domain, and the workflow will pick the change up on the next deploy.
+  basePath: /leesifystatus
+
+# Where the check results are committed, and where the site reads them back
+# from through the GitHub API. These two fields tie the halves together.
+repository:
+  owner: 9leedev
+  name: leesifystatus
+  branch: main
+
+#loaded
+
+# Applied to every monitor unless the monitor overrides them.
+defaults:
+  # Informational: the real cadence is the cron in .github/workflows/uptime.yml.
+  # Keep the two in step so the UI doesn't promise a freshness it can't deliver.
+  intervalSeconds: 300
+  timeoutMs: 10000
+  # Slower than this and a passing check reports "degraded". Tuned to these
+  # sites' observed 300–1500ms range so normal variance doesn't flap.
+  degradedMs: 2500
+  failureThreshold: 2 # consecutive failures before declaring an outage
+  retries: 1 # immediate retries before a check counts as failed
+
+retention:
+  recentChecks: 720 # response-time samples kept per monitor (180 days at 6h)
+  days: 90 # daily rollups kept per monitor
+  incidents: 200 # incidents kept in the log
+
+# How an outage becomes a GitHub issue.
+incidents:
+  # Everyone here is assigned to every incident, so an outage always has an
+  # owner. They must have push access, or GitHub silently drops the assignment.
+  assignees:
+    - 9leedev
+  labels:
+    - status
+    - incident
+  # Lock the conversation so people outside the organisation cannot comment.
+  lock: true
+  closeOnRecovery: true
+  # Checks run every 5 minutes; a follow-up report is posted at most this
+  # often, and always immediately when the failure reason changes.
+  commentThrottleMinutes: 30
+
+notifications:
+  # Set SLACK_WEBHOOK_URL as a repository secret. Discord's webhooks accept the
+  # same payload, so a Discord URL works here too.
+  slackWebhook: ${SLACK_WEBHOOK_URL}
+  webhooks: []
+
+monitors:
+  - id: kichaka
+    name: Kichaka
+    url: https://kichaka.top
+    tags: [production, web]
+
+  - id: kfs
+    name: KFS
+    url: https://hr.kenyaforestservice.org
+    tags: [production, web]
+    description: Kenya Forest Service HR portal.
+
+  - id: kimap
+    name: KIMAP
+    url: https://kimap.org
+    tags: [production, web]
+
+  - id: protouch
+    name: Protouch
+    url: https://protouch.co.ke
+    tags: [production, web]
+
+  - id: kfc
+    name: KFC
+    url: https://kfc.ac.ke
+    tags: [production, web]
+
+  - id: campaign-top
+    name: CampaignHQ
+    url: https://campaignhq.top
+    tags: [prod, live]
+
+  - id: cecebeauty
+    name: Cece Beauty
+    url: https://cecebeauty.co.ke
+    tags: [prod, web]
+
+  # Protected. Checked and alerted on exactly like the others, but published
+  # only into api/secure.json, which is AES-GCM ciphertext sealed with the
+  # UPSITE_SECURE_KEY repository secret. The protected tab asks for that key
+  # and decrypts it in the browser.
+  #
+  # Caveat worth knowing: history/simba.yml is still committed in the clear,
+  # and this config names the URL either way. What the key protects is the
+  # status, latency and incident data — not the fact that the site exists.
+  - id: simba
+    name: Simba 2027
+    url: https://bitok.campaignhq.top
+    secure: true
+    tags: [private]

@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+build
+.env
+.env.local
+*.tsbuildinfo
+next-env.d.ts
+
+# `history/`, `api/` and `graphs/` are deliberately NOT ignored — they are the
+# database. The workflows commit them on every run.
