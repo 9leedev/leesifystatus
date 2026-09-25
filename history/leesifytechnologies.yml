@@ -1,0 +1,22 @@
+id: leesifytechnologies
+name: Leesify Technologies
+target: http://leesifytechnologies.com
+status: pending
+since: 2026-09-25T12:24:06.522Z
+lastUpdated: 2026-09-25T12:24:06.522Z
+consecutiveFailures: 0
+consecutiveDegraded: 0
+today:
+  d: 2026-09-25
+  n: 0
+  down: 0
+  deg: 0
+  sum: 0
+  max: 0
+window:
+  d: 2026-09-25T12:24:06.522Z
+  n: 0
+  down: 0
+  deg: 0
+  sum: 0
+  max: 0

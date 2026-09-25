@@ -9,8 +9,248 @@
     "name": "leesifystatus",
     "branch": "main"
   },
-  "updatedAt": 0,
-  "overall": "unknown",
-  "monitors": [],
-  "incidents": []
+  "overall": "pending",
+  "generatedAt": 1790339047961,
+  "monitors": [
+    {
+      "id": "leefipay",
+      "name": "LeeFi Pay",
+      "kind": "http",
+      "target": "https://leefipay.com",
+      "url": "https://leefipay.com",
+      "tags": [
+        "production",
+        "web"
+      ],
+      "secure": false,
+      "intervalSeconds": 300,
+      "state": {
+        "status": "pending",
+        "since": 1790339046509,
+        "lastCheck": 1790339046509,
+        "consecutiveFailures": 0
+      },
+      "recent": [],
+      "daily": [],
+      "uptime": {
+        "day": null,
+        "week": null,
+        "month": null,
+        "quarter": null
+      },
+      "latency": {
+        "avg": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    {
+      "id": "leesifyapp",
+      "name": "Leesify App",
+      "kind": "http",
+      "target": "https://leesifyapp.com",
+      "url": "https://leesifyapp.com",
+      "tags": [
+        "production",
+        "web"
+      ],
+      "secure": false,
+      "intervalSeconds": 300,
+      "state": {
+        "status": "pending",
+        "since": 1790339046516,
+        "lastCheck": 1790339046516,
+        "consecutiveFailures": 0
+      },
+      "recent": [],
+      "daily": [],
+      "uptime": {
+        "day": null,
+        "week": null,
+        "month": null,
+        "quarter": null
+      },
+      "latency": {
+        "avg": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    {
+      "id": "tixvora",
+      "name": "Tixvora",
+      "kind": "http",
+      "target": "https://tixvora.com",
+      "url": "https://tixvora.com",
+      "tags": [
+        "production",
+        "web"
+      ],
+      "secure": false,
+      "intervalSeconds": 300,
+      "state": {
+        "status": "pending",
+        "since": 1790339046517,
+        "lastCheck": 1790339046517,
+        "consecutiveFailures": 0
+      },
+      "recent": [],
+      "daily": [],
+      "uptime": {
+        "day": null,
+        "week": null,
+        "month": null,
+        "quarter": null
+      },
+      "latency": {
+        "avg": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    {
+      "id": "client-portal",
+      "name": "Client Portal",
+      "kind": "http",
+      "target": "http://client.app.altifysolutions.com",
+      "url": "http://client.app.altifysolutions.com",
+      "tags": [
+        "production",
+        "app"
+      ],
+      "description": "Altify Client CRM",
+      "secure": false,
+      "intervalSeconds": 300,
+      "state": {
+        "status": "pending",
+        "since": 1790339046519,
+        "lastCheck": 1790339046519,
+        "consecutiveFailures": 0
+      },
+      "recent": [],
+      "daily": [],
+      "uptime": {
+        "day": null,
+        "week": null,
+        "month": null,
+        "quarter": null
+      },
+      "latency": {
+        "avg": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    {
+      "id": "hrmsuite",
+      "name": "HRM Suite",
+      "kind": "http",
+      "target": "http://hrmsuite.app.altifysolutions.com",
+      "url": "http://hrmsuite.app.altifysolutions.com",
+      "tags": [
+        "production",
+        "app"
+      ],
+      "secure": false,
+      "intervalSeconds": 300,
+      "state": {
+        "status": "pending",
+        "since": 1790339046520,
+        "lastCheck": 1790339046520,
+        "consecutiveFailures": 0
+      },
+      "recent": [],
+      "daily": [],
+      "uptime": {
+        "day": null,
+        "week": null,
+        "month": null,
+        "quarter": null
+      },
+      "latency": {
+        "avg": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    {
+      "id": "leesify",
+      "name": "Leesify",
+      "kind": "http",
+      "target": "https://leesify.com",
+      "url": "https://leesify.com",
+      "tags": [
+        "production",
+        "web"
+      ],
+      "secure": false,
+      "intervalSeconds": 300,
+      "state": {
+        "status": "pending",
+        "since": 1790339046521,
+        "lastCheck": 1790339046521,
+        "consecutiveFailures": 0
+      },
+      "recent": [],
+      "daily": [],
+      "uptime": {
+        "day": null,
+        "week": null,
+        "month": null,
+        "quarter": null
+      },
+      "latency": {
+        "avg": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    {
+      "id": "leesifytechnologies",
+      "name": "Leesify Technologies",
+      "kind": "http",
+      "target": "http://leesifytechnologies.com",
+      "url": "http://leesifytechnologies.com",
+      "tags": [
+        "production",
+        "web"
+      ],
+      "secure": false,
+      "intervalSeconds": 300,
+      "state": {
+        "status": "pending",
+        "since": 1790339046522,
+        "lastCheck": 1790339046522,
+        "consecutiveFailures": 0
+      },
+      "recent": [],
+      "daily": [],
+      "uptime": {
+        "day": null,
+        "week": null,
+        "month": null,
+        "quarter": null
+      },
+      "latency": {
+        "avg": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    }
+  ],
+  "incidents": [],
+  "counts": {
+    "up": 0,
+    "degraded": 0,
+    "down": 0,
+    "paused": 0,
+    "pending": 7
+  }
 }

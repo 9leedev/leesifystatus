@@ -11,15 +11,15 @@ product, git is the database — with a Next.js status site in place of Sapper.
 
 | Monitor | Status | Response | 24h | 7d | 30d | 90d | Graph |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ⬜ [LeeFi Pay](https://leefipay.com) | pending | — | — | — | — | — | — |
-| ⬜ [Leesify App](https://leesifyapp.com) | pending | — | — | — | — | — | — |
-| ⬜ [Tixvora](https://tixvora.com) | pending | — | — | — | — | — | — |
-| ⬜ [Client Portal](http://client.app.altifysolutions.com) | pending | — | — | — | — | — | — |
-| ⬜ [HRM Suite](http://hrmsuite.app.altifysolutions.com) | pending | — | — | — | — | — | — |
-| ⬜ [Leesify](https://leesify.com) | pending | — | — | — | — | — | — |
-| ⬜ [Leesify Technologies](http://leesifytechnologies.com) | pending | — | — | — | — | — | — |
+| ⬛ [LeeFi Pay](https://leefipay.com) | pending | — | — | — | — | — | [graph](./graphs/leefipay.svg) |
+| ⬛ [Leesify App](https://leesifyapp.com) | pending | — | — | — | — | — | [graph](./graphs/leesifyapp.svg) |
+| ⬛ [Tixvora](https://tixvora.com) | pending | — | — | — | — | — | [graph](./graphs/tixvora.svg) |
+| ⬛ [Client Portal](http://client.app.altifysolutions.com) | pending | — | — | — | — | — | [graph](./graphs/client-portal.svg) |
+| ⬛ [HRM Suite](http://hrmsuite.app.altifysolutions.com) | pending | — | — | — | — | — | [graph](./graphs/hrmsuite.svg) |
+| ⬛ [Leesify](https://leesify.com) | pending | — | — | — | — | — | [graph](./graphs/leesify.svg) |
+| ⬛ [Leesify Technologies](http://leesifytechnologies.com) | pending | — | — | — | — | — | [graph](./graphs/leesifytechnologies.svg) |
 
-_Awaiting first uptime run._
+_Updated 2026-09-25 12:24 UTC by [the uptime workflow](../../actions/workflows/uptime.yml)._
 <!-- upsite:status:end -->
 
 ---

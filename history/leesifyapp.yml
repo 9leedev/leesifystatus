@@ -1,0 +1,22 @@
+id: leesifyapp
+name: Leesify App
+target: https://leesifyapp.com
+status: pending
+since: 2026-09-25T12:24:06.516Z
+lastUpdated: 2026-09-25T12:24:06.516Z
+consecutiveFailures: 0
+consecutiveDegraded: 0
+today:
+  d: 2026-09-25
+  n: 0
+  down: 0
+  deg: 0
+  sum: 0
+  max: 0
+window:
+  d: 2026-09-25T12:24:06.516Z
+  n: 0
+  down: 0
+  deg: 0
+  sum: 0
+  max: 0
