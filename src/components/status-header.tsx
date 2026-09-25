@@ -1,17 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Activity, Github, RefreshCw, TriangleAlert, WifiOff } from "lucide-react";
+import { Activity, RefreshCw, TriangleAlert, WifiOff } from "lucide-react";
 import { StatusDot } from "./status-dot";
+import { ThemeToggle } from "./theme-toggle";
 import { cn, formatClock, STATUS_STYLE } from "@/lib/format";
-import { repoUrl, type Source } from "@/lib/source";
 import type { StatusSnapshot } from "@/lib/types";
 import type { Connection } from "@/hooks/use-status";
-
-/**
- * The masthead. The overall state is the hero — one number-sized statement,
- * with the per-status counts as supporting figures rather than a chart.
- */
 
 const OVERALL_HEADLINE: Record<StatusSnapshot["overall"], string> = {
   up: "All systems operational",
@@ -26,8 +21,7 @@ function ConnectionPill({ connection }: { connection: Connection }) {
     return (
       <span className="inline-flex items-center gap-1.5 rounded-full border border-down/30 bg-down/10 px-2.5 py-1 text-[11px] text-down">
         <WifiOff className="h-3 w-3" />
-        <span className="sm:hidden">Offline</span>
-        <span className="hidden sm:inline">Cannot reach GitHub</span>
+        Connection issue
       </span>
     );
   }
@@ -36,7 +30,7 @@ function ConnectionPill({ connection }: { connection: Connection }) {
     return (
       <span className="inline-flex items-center gap-1.5 rounded-full border border-degraded/30 bg-degraded/10 px-2.5 py-1 text-[11px] text-degraded">
         <TriangleAlert className="h-3 w-3" />
-        Data is behind
+        Updating…
       </span>
     );
   }
@@ -61,7 +55,7 @@ function ConnectionPill({ connection }: { connection: Connection }) {
           )}
         />
       </span>
-      {connection === "live" ? "Up to date" : "Loading"}
+      {connection === "live" ? "Live" : "Loading"}
     </span>
   );
 }
@@ -71,13 +65,11 @@ export function StatusHeader({
   connection,
   onRefresh,
   refreshing,
-  source,
 }: {
   snapshot: StatusSnapshot;
   connection: Connection;
   onRefresh: () => void;
   refreshing: boolean;
-  source: Source;
 }) {
   const style = STATUS_STYLE[snapshot.overall];
 
@@ -115,16 +107,7 @@ export function StatusHeader({
             <RefreshCw className={cn("h-3 w-3", refreshing && "animate-spin")} />
             <span className="hidden sm:inline">{refreshing ? "Refreshing…" : "Refresh"}</span>
           </button>
-          <a
-            href={repoUrl(source)}
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label="Source data on GitHub"
-            className="inline-flex items-center gap-1.5 rounded-full border border-edge bg-abyss px-3 py-1.5 text-[11px] text-ink-dim transition hover:border-signal/40 hover:text-signal sm:py-1"
-          >
-            <Github className="h-3 w-3" />
-            <span className="hidden sm:inline">Source data</span>
-          </a>
+          <ThemeToggle />
         </div>
       </div>
 
@@ -153,8 +136,8 @@ export function StatusHeader({
               </h1>
             </div>
             <p className="mt-2 text-xs leading-relaxed text-ink-dim sm:text-sm">
-              Monitoring {snapshot.monitors.length} endpoint
-              {snapshot.monitors.length === 1 ? "" : "s"} · last check{" "}
+              {snapshot.monitors.length} service
+              {snapshot.monitors.length === 1 ? "" : "s"} monitored · updated{" "}
               <span className="font-mono">{formatClock(snapshot.generatedAt)}</span>
             </p>
           </div>

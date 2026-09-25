@@ -1,19 +1,18 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ExternalLink, Globe, Search, ShieldCheck } from "lucide-react";
+import { Globe, Search, ShieldCheck } from "lucide-react";
 import { StatusHeader } from "./status-header";
 import { MonitorCard } from "./monitor-card";
 import { IncidentFeed } from "./incident-feed";
 import { UptimeBars } from "./uptime-bars";
 import { StatusLegend } from "./latency-chart";
 import { ProtectedPanel } from "./protected-panel";
-import { AddMonitorDialog } from "./add-monitor-dialog";
 import { SiteFooter } from "./site-footer";
 import { useStatus } from "@/hooks/use-status";
 import type { UpsiteConfig } from "@/lib/config";
 import { cn, formatUptime } from "@/lib/format";
-import { issuesUrl, type Source } from "@/lib/source";
+import type { Source } from "@/lib/source";
 import type { MonitorStatus, StatusSnapshot } from "@/lib/types";
 
 type StatusFilter = "all" | MonitorStatus;
@@ -29,15 +28,11 @@ const STATUS_FILTERS: { value: StatusFilter; label: string }[] = [
 export function Dashboard({
   initial,
   source,
-  incidentLabels,
   hasProtected,
   contact,
 }: {
-  /** Baked into the export at build time, so the first paint is never empty. */
   initial: StatusSnapshot;
   source: Source;
-  incidentLabels: string[];
-  /** Whether any monitor is marked `secure`, so the tab is only shown if used. */
   hasProtected: boolean;
   contact?: UpsiteConfig["site"]["contact"];
 }) {
@@ -73,7 +68,6 @@ export function Dashboard({
     [monitors],
   );
 
-  /** Fleet-wide uptime, weighted by checks so a noisy monitor can't dominate. */
   const fleetUptime = useMemo(() => {
     let total = 0;
     let down = 0;
@@ -86,6 +80,8 @@ export function Dashboard({
     return total === 0 ? null : (total - down) / total;
   }, [monitors]);
 
+  const showTabs = hasProtected;
+
   return (
     <main
       id="main"
@@ -96,68 +92,66 @@ export function Dashboard({
         connection={connection}
         onRefresh={() => void refresh()}
         refreshing={refreshing}
-        source={source}
       />
 
-      <nav className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-        <div
-          className="flex gap-1.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      {showTabs && (
+        <nav
+          className="mt-6 flex gap-1.5 overflow-x-auto pb-0.5 sm:mt-8"
           role="tablist"
-          aria-label="Monitor groups"
+          aria-label="Service groups"
         >
           {(
             [
-              { value: "public", label: "Public", icon: Globe, count: monitors.length },
-              { value: "protected", label: "Protected", icon: ShieldCheck, count: null },
+              { value: "public", label: "Services", icon: Globe, count: monitors.length },
+              { value: "protected", label: "Private", icon: ShieldCheck, count: null },
             ] as const
-          )
-            .filter((t) => t.value === "public" || hasProtected)
-            .map((t) => {
-              const Icon = t.icon;
-              const active = tab === t.value;
-              return (
-                <button
-                  key={t.value}
-                  type="button"
-                  role="tab"
-                  aria-selected={active}
-                  onClick={() => setTab(t.value)}
-                  className={cn(
-                    "inline-flex shrink-0 items-center gap-2 rounded-xl border px-3.5 py-2.5 text-xs transition sm:py-2",
-                    active
-                      ? "border-signal/40 bg-signal/10 text-signal"
-                      : "border-edge bg-abyss/60 text-ink-dim hover:text-ink",
-                  )}
-                >
-                  <Icon className="h-3.5 w-3.5" />
-                  {t.label}
-                  {t.count !== null && t.count > 0 && (
-                    <span className="rounded-md bg-edge px-1.5 py-0.5 font-mono text-[10px] text-ink-dim">
-                      {t.count}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
-        </div>
-
-        <div className="self-start sm:self-auto">
-          <AddMonitorDialog source={source} />
-        </div>
-      </nav>
+          ).map((t) => {
+            const Icon = t.icon;
+            const active = tab === t.value;
+            return (
+              <button
+                key={t.value}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => setTab(t.value)}
+                className={cn(
+                  "inline-flex shrink-0 items-center gap-2 rounded-xl border px-3.5 py-2.5 text-xs transition sm:py-2",
+                  active
+                    ? "border-signal/40 bg-signal/10 text-signal"
+                    : "border-edge bg-abyss/60 text-ink-dim hover:text-ink",
+                )}
+              >
+                <Icon className="h-3.5 w-3.5" />
+                {t.label}
+                {t.count !== null && t.count > 0 && (
+                  <span className="rounded-md bg-edge px-1.5 py-0.5 font-mono text-[10px] text-ink-dim">
+                    {t.count}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </nav>
+      )}
 
       {tab === "protected" && <ProtectedPanel source={source} />}
 
       <div hidden={tab !== "public"}>
-        <section className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center">
+        <section
+          className={cn(
+            "flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center",
+            showTabs ? "mt-5 sm:mt-6" : "mt-6 sm:mt-8",
+          )}
+        >
           <div className="relative w-full min-w-0 sm:min-w-[200px] sm:flex-1">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink-faint" />
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Filter monitors…"
-              aria-label="Filter monitors"
+              placeholder="Search services…"
+              aria-label="Search services"
               className="w-full rounded-xl border border-edge bg-abyss/70 py-2.5 pl-9 pr-3 text-sm text-ink placeholder:text-ink-faint focus:border-signal/50 focus:outline-none sm:py-2"
             />
           </div>
@@ -220,8 +214,8 @@ export function Dashboard({
         {visible.length === 0 && (
           <p className="mt-10 text-center text-sm text-ink-faint">
             {monitors.length === 0
-              ? "No monitors configured yet."
-              : "No monitors match this filter."}
+              ? "No services configured yet."
+              : "No services match this filter."}
           </p>
         )}
 
@@ -229,10 +223,8 @@ export function Dashboard({
           <div className="glass bevel rounded-2xl border border-edge p-4 sm:p-6">
             <div className="flex items-baseline justify-between gap-4">
               <div>
-                <h2 className="text-sm font-medium tracking-wide text-ink">Fleet uptime</h2>
-                <p className="mt-0.5 text-xs text-ink-faint">
-                  Last 90 days across every monitor
-                </p>
+                <h2 className="text-sm font-medium tracking-wide text-ink">Uptime overview</h2>
+                <p className="mt-0.5 text-xs text-ink-faint">Last 90 days across all services</p>
               </div>
               <span className="font-mono text-xl text-ink sm:text-2xl">
                 {formatUptime(fleetUptime)}
@@ -265,28 +257,16 @@ export function Dashboard({
           </div>
 
           <div>
-            <div className="flex items-baseline justify-between gap-3">
-              <h2 className="text-sm font-medium tracking-wide text-ink">Incident log</h2>
-              <a
-                href={issuesUrl(source, incidentLabels)}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center gap-1 text-[11px] text-ink-faint transition hover:text-signal"
-              >
-                All issues
-                <ExternalLink className="h-3 w-3" />
-              </a>
-            </div>
+            <h2 className="text-sm font-medium tracking-wide text-ink">Recent incidents</h2>
             <p className="mb-4 mt-0.5 text-xs text-ink-faint">
-              Each outage opens a GitHub issue, is reported on in its comments, and closes
-              itself on recovery
+              Outages and degradations recorded for these services
             </p>
             <IncidentFeed incidents={snapshot.incidents} names={names} />
           </div>
         </section>
       </div>
 
-      <SiteFooter contact={contact} source={source} />
+      <SiteFooter contact={contact} siteName={snapshot.site.name} />
     </main>
   );
 }

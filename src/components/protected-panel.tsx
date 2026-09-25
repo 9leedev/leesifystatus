@@ -62,9 +62,9 @@ export function ProtectedPanel({ source }: { source: Source }) {
       } catch (err) {
         if (controller.signal.aborted) return null;
         if (err instanceof SourceError && err.status === 404) {
-          return "No protected data has been published yet. Set the UPSITE_SECURE_KEY secret and run the Summary workflow.";
+          return "No private status data is available yet.";
         }
-        return "Could not reach GitHub.";
+        return "Could not load private status data.";
       }
 
       try {
@@ -74,8 +74,8 @@ export function ProtectedPanel({ source }: { source: Source }) {
         return null;
       } catch (err) {
         return err instanceof WrongKeyError
-          ? "That key does not open this file."
-          : "The protected data could not be read.";
+          ? "That key does not unlock this view."
+          : "Private status data could not be read.";
       }
     },
     [source],

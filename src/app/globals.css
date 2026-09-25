@@ -1,28 +1,91 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Upsite design tokens
-   A deep-space console: near-black ground, one cyan signal accent,
-   and status hues that stay legible against glass.
+   Design tokens — dark by default, flipped via html.light
    ------------------------------------------------------------------ */
+:root,
+html.dark {
+  color-scheme: dark;
+  --void: #05070d;
+  --abyss: #080b14;
+  --panel: #0c111d;
+  --edge: #1a2234;
+  --edge-bright: #2a3550;
+  --ink: #e8eefc;
+  --ink-dim: #8b9ab8;
+  --ink-faint: #56637d;
+  --signal: #0891b2;
+  --signal-bright: #22d3ee;
+  --up: #059669;
+  --up-bright: #34d399;
+  --degraded: #d97706;
+  --degraded-bright: #fbbf24;
+  --down: #e11d48;
+  --down-bright: #fb7185;
+  --paused: #64748b;
+  --glass-top: rgba(18, 25, 41, 0.88);
+  --glass-bottom: rgba(10, 14, 24, 0.78);
+  --grid-line: rgba(42, 53, 80, 0.28);
+  --bevel: rgba(34, 211, 238, 0.4);
+  --glow-up: rgba(52, 211, 153, 0.45);
+  --glow-down: rgba(251, 113, 133, 0.45);
+  --glow-degraded: rgba(251, 191, 36, 0.45);
+  --glow-signal: rgba(34, 211, 238, 0.4);
+  --ambient-signal: rgba(34, 211, 238, 0.07);
+  --ambient-up: rgba(52, 211, 153, 0.05);
+  --theme-color: #05070d;
+}
+
+html.light {
+  color-scheme: light;
+  --void: #f4f7fb;
+  --abyss: #ffffff;
+  --panel: #eef2f8;
+  --edge: #d5dee9;
+  --edge-bright: #b6c3d4;
+  --ink: #0f172a;
+  --ink-dim: #475569;
+  --ink-faint: #94a3b8;
+  --signal: #0e7490;
+  --signal-bright: #0891b2;
+  --up: #047857;
+  --up-bright: #059669;
+  --degraded: #b45309;
+  --degraded-bright: #d97706;
+  --down: #be123c;
+  --down-bright: #e11d48;
+  --paused: #64748b;
+  --glass-top: rgba(255, 255, 255, 0.92);
+  --glass-bottom: rgba(244, 247, 251, 0.88);
+  --grid-line: rgba(148, 163, 184, 0.22);
+  --bevel: rgba(8, 145, 178, 0.35);
+  --glow-up: rgba(5, 150, 105, 0.2);
+  --glow-down: rgba(225, 29, 72, 0.18);
+  --glow-degraded: rgba(217, 119, 6, 0.18);
+  --glow-signal: rgba(8, 145, 178, 0.18);
+  --ambient-signal: rgba(8, 145, 178, 0.08);
+  --ambient-up: rgba(5, 150, 105, 0.06);
+  --theme-color: #f4f7fb;
+}
+
 @theme {
-  --color-void: #05070d;
-  --color-abyss: #080b14;
-  --color-panel: #0c111d;
-  --color-edge: #1a2234;
-  --color-edge-bright: #2a3550;
+  --color-void: var(--void);
+  --color-abyss: var(--abyss);
+  --color-panel: var(--panel);
+  --color-edge: var(--edge);
+  --color-edge-bright: var(--edge-bright);
 
-  --color-ink: #e8eefc;
-  --color-ink-dim: #8b9ab8;
-  --color-ink-faint: #56637d;
+  --color-ink: var(--ink);
+  --color-ink-dim: var(--ink-dim);
+  --color-ink-faint: var(--ink-faint);
 
-  --color-signal: #22d3ee;
-  --color-signal-deep: #0891b2;
+  --color-signal: var(--signal-bright);
+  --color-signal-deep: var(--signal);
 
-  --color-up: #34d399;
-  --color-degraded: #fbbf24;
-  --color-down: #fb7185;
-  --color-paused: #64748b;
+  --color-up: var(--up-bright);
+  --color-degraded: var(--degraded-bright);
+  --color-down: var(--down-bright);
+  --color-paused: var(--paused);
 
   --font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
 
@@ -53,23 +116,19 @@
 }
 
 * {
-  border-color: var(--color-edge);
-}
-
-html {
-  color-scheme: dark;
+  border-color: var(--edge);
 }
 
 body {
-  background-color: var(--color-void);
-  color: var(--color-ink);
+  background-color: var(--void);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "tnum" 1, "cv02" 1;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Touch-friendly taps without enlarging desktop chrome. */
 @media (max-width: 639px) {
   button,
   a,
@@ -78,31 +137,24 @@ body {
   }
 }
 
-/* The grid that makes the ground feel like a console rather than a page. */
 .grid-field {
   background-image:
-    linear-gradient(to right, rgba(42, 53, 80, 0.28) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(42, 53, 80, 0.28) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
-/* Radial falloff so the grid fades out toward the edges of the viewport. */
 .grid-mask {
   mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 35%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 35%, transparent 100%);
 }
 
 .glass {
-  background: linear-gradient(
-    160deg,
-    rgba(18, 25, 41, 0.82) 0%,
-    rgba(10, 14, 24, 0.72) 100%
-  );
+  background: linear-gradient(160deg, var(--glass-top) 0%, var(--glass-bottom) 100%);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
 }
 
-/* A hairline of light along the top edge — reads as a bevel, not a border. */
 .bevel {
   position: relative;
 }
@@ -112,28 +164,35 @@ body {
   inset-inline: 0;
   top: 0;
   height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(34, 211, 238, 0.4),
-    transparent
-  );
+  background: linear-gradient(to right, transparent, var(--bevel), transparent);
   pointer-events: none;
 }
 
-.text-glow-up { text-shadow: 0 0 18px rgba(52, 211, 153, 0.55); }
-.text-glow-down { text-shadow: 0 0 18px rgba(251, 113, 133, 0.55); }
-.text-glow-degraded { text-shadow: 0 0 18px rgba(251, 191, 36, 0.55); }
-.text-glow-signal { text-shadow: 0 0 20px rgba(34, 211, 238, 0.5); }
+.text-glow-up { text-shadow: 0 0 18px var(--glow-up); }
+.text-glow-down { text-shadow: 0 0 18px var(--glow-down); }
+.text-glow-degraded { text-shadow: 0 0 18px var(--glow-degraded); }
+.text-glow-signal { text-shadow: 0 0 20px var(--glow-signal); }
 
-/* Thin, unobtrusive scrollbars — a dashboard shouldn't be interrupted by chrome. */
+html.light .text-glow-up,
+html.light .text-glow-down,
+html.light .text-glow-degraded,
+html.light .text-glow-signal {
+  text-shadow: none;
+}
+
+.ambient-signal {
+  background-color: var(--ambient-signal);
+}
+.ambient-up {
+  background-color: var(--ambient-up);
+}
+
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-edge-bright);
+  background: var(--edge-bright);
   border-radius: 999px;
 }
-::-webkit-scrollbar-thumb:hover { background: #3b4870; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

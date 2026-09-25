@@ -12,7 +12,7 @@
 
 site:
   name: Altify Apps
-  tagline: Status page for Altify apps
+  tagline: Status for Altify apps and services
   url: https://status.altifysolutions.com
   # Custom domain is served from the site root (not /<repo>).
   basePath: ""

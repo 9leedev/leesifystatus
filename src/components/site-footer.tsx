@@ -1,24 +1,24 @@
 import { Clock3, Mail, MapPin, MessageCircle, Phone, Globe } from "lucide-react";
 import type { UpsiteConfig } from "@/lib/config";
-import type { Source } from "@/lib/source";
 
 type Contact = NonNullable<UpsiteConfig["site"]["contact"]>;
 
 export function SiteFooter({
   contact,
-  source,
+  siteName = "Altify Apps",
 }: {
   contact?: Contact;
-  source: Source;
+  siteName?: string;
 }) {
   const phoneHref = contact?.phone?.replace(/\s+/g, "");
   const whatsappHref = contact?.whatsapp?.replace(/\D/g, "");
+  const year = new Date().getFullYear();
 
   return (
     <footer className="mt-12 border-t border-edge/70 pt-8 sm:mt-16 sm:pt-10">
       {contact && (
         <section
-          aria-label="Altify contact"
+          aria-label="Contact"
           className="glass bevel mb-8 rounded-2xl border border-edge p-5 sm:p-6"
         >
           <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
@@ -125,12 +125,7 @@ export function SiteFooter({
       )}
 
       <p className="pb-[max(0.5rem,env(safe-area-inset-bottom))] text-[11px] leading-relaxed text-ink-faint">
-        Checked every 5 minutes by GitHub Actions · results in{" "}
-        <code className="text-ink-dim">
-          {source.owner}/{source.name}
-        </code>
-        {" · "}
-        configured in <code className="text-ink-dim">upsite.config.yaml</code>
+        © {year} {siteName}. All rights reserved.
       </p>
     </footer>
   );

@@ -1,0 +1,2 @@
+/** Runs before paint to avoid a flash of the wrong theme. */
+export const themeInitScript = `(function(){try{var k='altify-status-theme';var t=localStorage.getItem(k);if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}var r=document.documentElement;r.classList.remove('light','dark');r.classList.add(t);r.style.colorScheme=t;}catch(e){document.documentElement.classList.add('dark');}})();`;

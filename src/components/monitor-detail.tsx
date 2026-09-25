@@ -8,6 +8,7 @@ import { UptimeBars } from "./uptime-bars";
 import { IncidentFeed } from "./incident-feed";
 import { StatusDot } from "./status-dot";
 import { SiteFooter } from "./site-footer";
+import { ThemeToggle } from "./theme-toggle";
 import {
   cn,
   formatClock,
@@ -18,7 +19,7 @@ import {
   STATUS_STYLE,
 } from "@/lib/format";
 import type { UpsiteConfig } from "@/lib/config";
-import { badgeUrl, fetchMonitor, type Source } from "@/lib/source";
+import { fetchMonitor, type Source } from "@/lib/source";
 import type { MonitorReport } from "@/lib/types";
 
 function Figure({
@@ -136,15 +137,18 @@ export function MonitorDetail({
             )}
           </div>
 
-          <button
-            type="button"
-            onClick={() => void refresh()}
-            disabled={refreshing}
-            className="inline-flex items-center gap-1.5 rounded-full border border-edge bg-abyss px-3 py-1.5 text-[11px] text-ink-dim transition hover:border-signal/40 hover:text-signal disabled:opacity-50"
-          >
-            <RefreshCw className={cn("h-3 w-3", refreshing && "animate-spin")} />
-            {refreshing ? "Refreshing…" : "Refresh"}
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              type="button"
+              onClick={() => void refresh()}
+              disabled={refreshing}
+              className="inline-flex items-center gap-1.5 rounded-full border border-edge bg-abyss px-3 py-1.5 text-[11px] text-ink-dim transition hover:border-signal/40 hover:text-signal disabled:opacity-50"
+            >
+              <RefreshCw className={cn("h-3 w-3", refreshing && "animate-spin")} />
+              {refreshing ? "Refreshing…" : "Refresh"}
+            </button>
+          </div>
         </div>
 
         {monitor.state.lastError && (
@@ -179,7 +183,7 @@ export function MonitorDetail({
       <section className="glass bevel mt-6 rounded-2xl border border-edge p-4 sm:p-6">
         <h2 className="text-sm font-medium text-ink">Response time</h2>
         <p className="mb-4 mt-0.5 text-xs text-ink-faint">
-          Milliseconds · one point per 6-hour recording, oldest to newest
+          Milliseconds · recent checks, oldest to newest
         </p>
         <div className="-mx-1 overflow-x-auto sm:mx-0">
           <LatencyChart checks={monitor.recent} />
@@ -200,7 +204,7 @@ export function MonitorDetail({
       <section className="mt-8">
         <h2 className="text-sm font-medium text-ink">Incident history</h2>
         <p className="mb-4 mt-0.5 text-xs text-ink-faint">
-          Recorded for this monitor only
+          Outages recorded for this service
         </p>
         <IncidentFeed
           incidents={incidents}
@@ -209,28 +213,7 @@ export function MonitorDetail({
         />
       </section>
 
-      <section className="glass mt-8 rounded-2xl border border-edge p-4 sm:p-6">
-        <h2 className="text-sm font-medium text-ink">Embeddable badges</h2>
-        <p className="mb-4 mt-0.5 text-xs text-ink-faint">
-          shields.io rendering the endpoint files this monitor commits to the repository
-        </p>
-        <div className="flex flex-wrap items-center gap-3">
-          {(["shields", "uptime", "response-time"] as const).map((kind) => (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              key={kind}
-              src={badgeUrl(source, monitor.id, kind)}
-              alt={`${monitor.name} ${kind.replace("shields", "status")} badge`}
-              height={20}
-            />
-          ))}
-        </div>
-        <pre className="mt-4 overflow-x-auto rounded-lg border border-edge bg-void/60 p-3 font-mono text-[11px] text-ink-dim">
-          {`![${monitor.name}](${badgeUrl(source, monitor.id, "uptime")})`}
-        </pre>
-      </section>
-
-      <SiteFooter contact={contact} source={source} />
+      <SiteFooter contact={contact} />
     </main>
   );
 }
