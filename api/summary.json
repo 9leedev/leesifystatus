@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "Altify Apps",
-    "tagline": "Status page for Altify apps",
+    "tagline": "Status for Altify apps and services",
     "url": "https://status.altifysolutions.com"
   },
   "repository": {
@@ -10,7 +10,7 @@
     "branch": "main"
   },
   "overall": "pending",
-  "generatedAt": 1790340359126,
+  "generatedAt": 1790340692226,
   "monitors": [
     {
       "id": "leefipay",
