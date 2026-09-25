@@ -11,44 +11,42 @@
   "secure": false,
   "intervalSeconds": 300,
   "state": {
-    "status": "pending",
-    "since": 1790339046521,
-    "lastCheck": 1790340785784,
-    "lastLatency": 126,
-    "lastCode": 500,
-    "lastError": "Unexpected status 500 Internal Server Error",
-    "consecutiveFailures": 1
+    "status": "up",
+    "since": 1790341948195,
+    "lastCheck": 1790341948195,
+    "lastLatency": 50,
+    "lastCode": 200,
+    "consecutiveFailures": 0
   },
   "recent": [
     {
-      "t": 1790340785784,
+      "t": 1790341948195,
       "s": "up",
-      "ms": 126,
-      "c": 500,
-      "e": "Unexpected status 500 Internal Server Error"
+      "ms": 50,
+      "c": 200
     }
   ],
   "daily": [
     {
       "d": "2026-09-25",
-      "n": 1,
+      "n": 2,
       "down": 1,
       "deg": 0,
-      "sum": 126,
+      "sum": 176,
       "max": 126
     }
   ],
   "uptime": {
-    "day": 0,
-    "week": 0,
-    "month": 0,
-    "quarter": 0
+    "day": 0.5,
+    "week": 0.5,
+    "month": 0.5,
+    "quarter": 0.5
   },
   "latency": {
-    "avg": 126,
-    "p95": 126,
-    "min": 126,
-    "max": 126
+    "avg": 50,
+    "p95": 50,
+    "min": 50,
+    "max": 50
   },
   "incidents": []
 }
