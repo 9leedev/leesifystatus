@@ -1,16 +1,16 @@
 {
   "site": {
-    "name": "Upsite",
-    "tagline": "Real-time uptime intelligence",
-    "url": "https://manyara20.github.io/Upsite"
+    "name": "Altify Apps",
+    "tagline": "Status page for Altify apps",
+    "url": "https://9leedev.github.io/leesifystatus"
   },
   "repository": {
-    "owner": "Manyara20",
-    "name": "Upsite",
+    "owner": "9leedev",
+    "name": "leesifystatus",
     "branch": "main"
   },
   "overall": "up",
-  "generatedAt": 1789450963393,
+  "generatedAt": 1790338260574,
   "monitors": [
     {
       "id": "kichaka",
