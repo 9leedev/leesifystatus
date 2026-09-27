@@ -11,15 +11,15 @@ product, git is the database — with a Next.js status site in place of Sapper.
 
 | Monitor | Status | Response | 24h | 7d | 30d | 90d | Graph |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 🟩 [LeeFi Pay](https://leefipay.com) | up | 110 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/leefipay.svg) |
-| 🟩 [Leesify App](https://leesifyapp.com) | up | 172 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/leesifyapp.svg) |
-| 🟩 [Tixvora](https://tixvora.com) | up | 348 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/tixvora.svg) |
-| 🟩 [Client Portal](http://client.app.altifysolutions.com) | up | 259 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/client-portal.svg) |
-| 🟩 [HRM Suite](http://hrmsuite.app.altifysolutions.com) | up | 325 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/hrmsuite.svg) |
-| 🟩 [Leesify](https://leesify.com) | up | 42 ms | 100.00% | 86.67% | 86.67% | 86.67% | [graph](./graphs/leesify.svg) |
-| 🟩 [Leesify Technologies](http://leesifytechnologies.com) | up | 470 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/leesifytechnologies.svg) |
+| 🟩 [LeeFi Pay](https://leefipay.com) | up | 131 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/leefipay.svg) |
+| 🟩 [Leesify App](https://leesifyapp.com) | up | 178 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/leesifyapp.svg) |
+| 🟩 [Tixvora](https://tixvora.com) | up | 280 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/tixvora.svg) |
+| 🟩 [Client Portal](http://client.app.altifysolutions.com) | up | 379 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/client-portal.svg) |
+| 🟩 [HRM Suite](http://hrmsuite.app.altifysolutions.com) | up | 307 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/hrmsuite.svg) |
+| 🟩 [Leesify](https://leesify.com) | up | 60 ms | 100.00% | 87.50% | 87.50% | 87.50% | [graph](./graphs/leesify.svg) |
+| 🟩 [Leesify Technologies](http://leesifytechnologies.com) | up | 566 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/leesifytechnologies.svg) |
 
-_Updated 2026-09-27 15:25 UTC by [the uptime workflow](../../actions/workflows/uptime.yml)._
+_Updated 2026-09-27 19:13 UTC by [the uptime workflow](../../actions/workflows/uptime.yml)._
 <!-- upsite:status:end -->
 
 ---
