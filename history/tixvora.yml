@@ -3,22 +3,22 @@ name: Tixvora
 target: https://tixvora.com
 status: up
 since: 2026-09-25T12:53:04.572Z
-lastUpdated: 2026-10-02T22:24:37.546Z
+lastUpdated: 2026-10-03T01:19:25.165Z
 consecutiveFailures: 0
 consecutiveDegraded: 0
 today:
-  d: 2026-10-02
-  n: 5
-  down: 0
-  deg: 0
-  sum: 1820
-  max: 529
-window:
-  d: 2026-10-02T21:32:49.550Z
+  d: 2026-10-03
   n: 1
   down: 0
   deg: 0
-  sum: 370
-  max: 370
-responseTime: 370
+  sum: 482
+  max: 482
+window:
+  d: 2026-10-02T21:32:49.550Z
+  n: 2
+  down: 0
+  deg: 0
+  sum: 852
+  max: 482
+responseTime: 482
 code: 200
