@@ -14,11 +14,11 @@ today:
   sum: 1101
   max: 456
 window:
-  d: 2026-10-04T11:28:00.362Z
-  n: 1
+  d: 2026-10-04T16:06:19.436Z
+  n: 0
   down: 0
   deg: 0
-  sum: 296
-  max: 296
+  sum: 0
+  max: 0
 responseTime: 296
 code: 200
