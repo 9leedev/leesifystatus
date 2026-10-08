@@ -14,12 +14,12 @@ today:
   sum: 406
   max: 207
 window:
-  d: 2026-10-08T03:23:32.600Z
-  n: 1
-  down: 1
+  d: 2026-10-08T12:24:23.939Z
+  n: 0
+  down: 0
   deg: 0
-  sum: 207
-  max: 207
+  sum: 0
+  max: 0
 responseTime: 207
 error: "CERT_HAS_EXPIRED: certificate has expired"
 incident:

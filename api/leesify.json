@@ -245,10 +245,9 @@
       "ms": 199
     },
     {
-      "t": 1791444033266,
+      "t": 1791462263939,
       "s": "down",
-      "ms": 207,
-      "e": "CERT_HAS_EXPIRED: certificate has expired"
+      "ms": 207
     }
   ],
   "daily": [
