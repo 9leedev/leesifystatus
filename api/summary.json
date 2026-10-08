@@ -9,8 +9,8 @@
     "name": "leesifystatus",
     "branch": "main"
   },
-  "overall": "down",
-  "generatedAt": 1791472246923,
+  "overall": "up",
+  "generatedAt": 1791472400842,
   "monitors": [
     {
       "id": "leefipay",
@@ -27,8 +27,8 @@
       "state": {
         "status": "up",
         "since": 1790340784515,
-        "lastCheck": 1791472243192,
-        "lastLatency": 107,
+        "lastCheck": 1791472396557,
+        "lastLatency": 112,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -264,9 +264,9 @@
           "ms": 157
         },
         {
-          "t": 1791472243192,
+          "t": 1791472396557,
           "s": "up",
-          "ms": 107,
+          "ms": 112,
           "c": 200
         }
       ],
@@ -380,7 +380,7 @@
           "n": 3,
           "down": 0,
           "deg": 0,
-          "sum": 383,
+          "sum": 388,
           "max": 157
         }
       ],
@@ -412,8 +412,8 @@
       "state": {
         "status": "up",
         "since": 1790340784254,
-        "lastCheck": 1791472243816,
-        "lastLatency": 218,
+        "lastCheck": 1791472397219,
+        "lastLatency": 186,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -649,9 +649,9 @@
           "ms": 256
         },
         {
-          "t": 1791472243816,
+          "t": 1791472397219,
           "s": "up",
-          "ms": 218,
+          "ms": 186,
           "c": 200
         }
       ],
@@ -765,7 +765,7 @@
           "n": 3,
           "down": 0,
           "deg": 0,
-          "sum": 677,
+          "sum": 645,
           "max": 256
         }
       ],
@@ -776,7 +776,7 @@
         "quarter": 1
       },
       "latency": {
-        "avg": 341,
+        "avg": 340,
         "p95": 421,
         "min": 144,
         "max": 5638
@@ -797,8 +797,8 @@
       "state": {
         "status": "up",
         "since": 1790340784572,
-        "lastCheck": 1791472244184,
-        "lastLatency": 366,
+        "lastCheck": 1791472397578,
+        "lastLatency": 303,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -1034,9 +1034,9 @@
           "ms": 616
         },
         {
-          "t": 1791472244184,
+          "t": 1791472397578,
           "s": "up",
-          "ms": 366,
+          "ms": 303,
           "c": 200
         }
       ],
@@ -1150,7 +1150,7 @@
           "n": 3,
           "down": 0,
           "deg": 0,
-          "sum": 1369,
+          "sum": 1306,
           "max": 616
         }
       ],
@@ -1161,7 +1161,7 @@
         "quarter": 1
       },
       "latency": {
-        "avg": 601,
+        "avg": 600,
         "p95": 765,
         "min": 260,
         "max": 9131
@@ -1183,8 +1183,8 @@
       "state": {
         "status": "up",
         "since": 1790340784579,
-        "lastCheck": 1791472244007,
-        "lastLatency": 261,
+        "lastCheck": 1791472396564,
+        "lastLatency": 244,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -1420,9 +1420,9 @@
           "ms": 370
         },
         {
-          "t": 1791472244007,
+          "t": 1791472396564,
           "s": "up",
-          "ms": 261,
+          "ms": 244,
           "c": 200
         }
       ],
@@ -1536,7 +1536,7 @@
           "n": 3,
           "down": 0,
           "deg": 0,
-          "sum": 973,
+          "sum": 956,
           "max": 370
         }
       ],
@@ -1547,9 +1547,9 @@
         "quarter": 1
       },
       "latency": {
-        "avg": 491,
+        "avg": 490,
         "p95": 631,
-        "min": 246,
+        "min": 244,
         "max": 6761
       }
     },
@@ -1568,8 +1568,8 @@
       "state": {
         "status": "up",
         "since": 1790340786346,
-        "lastCheck": 1791472244761,
-        "lastLatency": 309,
+        "lastCheck": 1791472398019,
+        "lastLatency": 280,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -1805,9 +1805,9 @@
           "ms": 426
         },
         {
-          "t": 1791472244761,
+          "t": 1791472398019,
           "s": "up",
-          "ms": 309,
+          "ms": 280,
           "c": 200
         }
       ],
@@ -1921,7 +1921,7 @@
           "n": 3,
           "down": 0,
           "deg": 0,
-          "sum": 1137,
+          "sum": 1108,
           "max": 426
         }
       ],
@@ -1951,13 +1951,12 @@
       "secure": false,
       "intervalSeconds": 300,
       "state": {
-        "status": "down",
-        "since": 1791444033266,
-        "lastCheck": 1791472243044,
-        "lastLatency": 195,
-        "lastCode": 403,
-        "lastError": "Unexpected status 403 Forbidden",
-        "consecutiveFailures": 3
+        "status": "up",
+        "since": 1791472396427,
+        "lastCheck": 1791472396427,
+        "lastLatency": 101,
+        "lastCode": 200,
+        "consecutiveFailures": 0
       },
       "recent": [
         {
@@ -2191,11 +2190,10 @@
           "ms": 207
         },
         {
-          "t": 1791472243044,
-          "s": "down",
-          "ms": 195,
-          "c": 403,
-          "e": "Unexpected status 403 Forbidden"
+          "t": 1791472396427,
+          "s": "up",
+          "ms": 101,
+          "c": 200
         }
       ],
       "daily": [
@@ -2306,21 +2304,21 @@
         {
           "d": "2026-10-08",
           "n": 3,
-          "down": 3,
+          "down": 2,
           "deg": 0,
-          "sum": 601,
+          "sum": 507,
           "max": 207
         }
       ],
       "uptime": {
-        "day": 0,
-        "week": 0.90625,
-        "month": 0.9104477611940298,
-        "quarter": 0.9104477611940298
+        "day": 0.3333333333333333,
+        "week": 0.9375,
+        "month": 0.9253731343283582,
+        "quarter": 0.9253731343283582
       },
       "latency": {
         "avg": 97,
-        "p95": 66,
+        "p95": 68,
         "min": 20,
         "max": 2140
       }
@@ -2340,8 +2338,8 @@
       "state": {
         "status": "up",
         "since": 1790340786693,
-        "lastCheck": 1791472245137,
-        "lastLatency": 489,
+        "lastCheck": 1791472398403,
+        "lastLatency": 453,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -2577,9 +2575,9 @@
           "ms": 621
         },
         {
-          "t": 1791472245137,
+          "t": 1791472398403,
           "s": "up",
-          "ms": 489,
+          "ms": 453,
           "c": 200
         }
       ],
@@ -2693,7 +2691,7 @@
           "n": 3,
           "down": 0,
           "deg": 0,
-          "sum": 1662,
+          "sum": 1626,
           "max": 621
         }
       ],
@@ -2719,13 +2717,14 @@
       "severity": "down",
       "reason": "CERT_HAS_EXPIRED: certificate has expired",
       "issue": 1,
-      "issueUrl": "https://github.com/9leedev/leesifystatus/issues/1"
+      "issueUrl": "https://github.com/9leedev/leesifystatus/issues/1",
+      "endedAt": 1791472396427
     }
   ],
   "counts": {
-    "up": 6,
+    "up": 7,
     "degraded": 0,
-    "down": 1,
+    "down": 0,
     "paused": 0,
     "pending": 0
   }

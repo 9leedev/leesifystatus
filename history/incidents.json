@@ -6,6 +6,7 @@
     "severity": "down",
     "reason": "CERT_HAS_EXPIRED: certificate has expired",
     "issue": 1,
-    "issueUrl": "https://github.com/9leedev/leesifystatus/issues/1"
+    "issueUrl": "https://github.com/9leedev/leesifystatus/issues/1",
+    "endedAt": 1791472396427
   }
 ]
