@@ -13,8 +13,8 @@
   "state": {
     "status": "up",
     "since": 1790340784254,
-    "lastCheck": 1791470697697,
-    "lastLatency": 247,
+    "lastCheck": 1791472243816,
+    "lastLatency": 218,
     "lastCode": 200,
     "consecutiveFailures": 0
   },
@@ -250,9 +250,9 @@
       "ms": 256
     },
     {
-      "t": 1791470697697,
+      "t": 1791472243816,
       "s": "up",
-      "ms": 247,
+      "ms": 218,
       "c": 200
     }
   ],
@@ -366,7 +366,7 @@
       "n": 3,
       "down": 0,
       "deg": 0,
-      "sum": 706,
+      "sum": 677,
       "max": 256
     }
   ],
@@ -377,7 +377,7 @@
     "quarter": 1
   },
   "latency": {
-    "avg": 342,
+    "avg": 341,
     "p95": 421,
     "min": 144,
     "max": 5638

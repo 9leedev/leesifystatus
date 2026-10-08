@@ -3,7 +3,7 @@ name: Leesify
 target: https://leesify.com
 status: down
 since: 2026-10-08T07:20:33.266Z
-lastUpdated: 2026-10-08T14:44:56.561Z
+lastUpdated: 2026-10-08T15:10:43.044Z
 consecutiveFailures: 3
 consecutiveDegraded: 0
 today:
@@ -11,17 +11,17 @@ today:
   n: 3
   down: 3
   deg: 0
-  sum: 451
+  sum: 601
   max: 207
 window:
   d: 2026-10-08T12:24:23.939Z
   n: 1
   down: 1
   deg: 0
-  sum: 45
-  max: 45
-responseTime: 45
-error: "CERT_HAS_EXPIRED: certificate has expired"
+  sum: 195
+  max: 195
+responseTime: 195
+error: Unexpected status 403 Forbidden
 incident:
   id: leesify-1791444033266
   startedAt: 1791444033266
@@ -29,5 +29,6 @@ incident:
   reason: "CERT_HAS_EXPIRED: certificate has expired"
   issue: 1
   issueUrl: https://github.com/9leedev/leesifystatus/issues/1
-  lastCommentAt: 1791470696561
-  lastCommentReason: "CERT_HAS_EXPIRED: certificate has expired"
+  lastCommentAt: 1791472243044
+  lastCommentReason: Unexpected status 403 Forbidden
+code: 403

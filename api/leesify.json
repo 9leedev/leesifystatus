@@ -13,9 +13,10 @@
   "state": {
     "status": "down",
     "since": 1791444033266,
-    "lastCheck": 1791470696561,
-    "lastLatency": 45,
-    "lastError": "CERT_HAS_EXPIRED: certificate has expired",
+    "lastCheck": 1791472243044,
+    "lastLatency": 195,
+    "lastCode": 403,
+    "lastError": "Unexpected status 403 Forbidden",
     "consecutiveFailures": 3
   },
   "recent": [
@@ -250,10 +251,11 @@
       "ms": 207
     },
     {
-      "t": 1791470696561,
+      "t": 1791472243044,
       "s": "down",
-      "ms": 45,
-      "e": "CERT_HAS_EXPIRED: certificate has expired"
+      "ms": 195,
+      "c": 403,
+      "e": "Unexpected status 403 Forbidden"
     }
   ],
   "daily": [
@@ -366,7 +368,7 @@
       "n": 3,
       "down": 3,
       "deg": 0,
-      "sum": 451,
+      "sum": 601,
       "max": 207
     }
   ],
