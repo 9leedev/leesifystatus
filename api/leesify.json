@@ -13,10 +13,10 @@
   "state": {
     "status": "down",
     "since": 1791444033266,
-    "lastCheck": 1791444033266,
-    "lastLatency": 207,
+    "lastCheck": 1791470696561,
+    "lastLatency": 45,
     "lastError": "CERT_HAS_EXPIRED: certificate has expired",
-    "consecutiveFailures": 2
+    "consecutiveFailures": 3
   },
   "recent": [
     {
@@ -248,6 +248,12 @@
       "t": 1791462263939,
       "s": "down",
       "ms": 207
+    },
+    {
+      "t": 1791470696561,
+      "s": "down",
+      "ms": 45,
+      "e": "CERT_HAS_EXPIRED: certificate has expired"
     }
   ],
   "daily": [
@@ -357,18 +363,18 @@
     },
     {
       "d": "2026-10-08",
-      "n": 2,
-      "down": 2,
+      "n": 3,
+      "down": 3,
       "deg": 0,
-      "sum": 406,
+      "sum": 451,
       "max": 207
     }
   ],
   "uptime": {
     "day": 0,
-    "week": 0.9354838709677419,
-    "month": 0.9242424242424242,
-    "quarter": 0.9242424242424242
+    "week": 0.90625,
+    "month": 0.9104477611940298,
+    "quarter": 0.9104477611940298
   },
   "latency": {
     "avg": 97,
