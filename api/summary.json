@@ -9,8 +9,8 @@
     "name": "leesifystatus",
     "branch": "main"
   },
-  "overall": "up",
-  "generatedAt": 1791441504002,
+  "overall": "down",
+  "generatedAt": 1791444038130,
   "monitors": [
     {
       "id": "leefipay",
@@ -27,8 +27,8 @@
       "state": {
         "status": "up",
         "since": 1790340784515,
-        "lastCheck": 1791421531148,
-        "lastLatency": 119,
+        "lastCheck": 1791444033485,
+        "lastLatency": 157,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -257,6 +257,12 @@
           "t": 1791429812600,
           "s": "up",
           "ms": 119
+        },
+        {
+          "t": 1791444033485,
+          "s": "up",
+          "ms": 157,
+          "c": 200
         }
       ],
       "daily": [
@@ -366,11 +372,11 @@
         },
         {
           "d": "2026-10-08",
-          "n": 1,
+          "n": 2,
           "down": 0,
           "deg": 0,
-          "sum": 119,
-          "max": 119
+          "sum": 276,
+          "max": 157
         }
       ],
       "uptime": {
@@ -380,8 +386,8 @@
         "quarter": 1
       },
       "latency": {
-        "avg": 109,
-        "p95": 131,
+        "avg": 110,
+        "p95": 151,
         "min": 75,
         "max": 181
       }
@@ -401,8 +407,8 @@
       "state": {
         "status": "up",
         "since": 1790340784254,
-        "lastCheck": 1791421531002,
-        "lastLatency": 203,
+        "lastCheck": 1791444033110,
+        "lastLatency": 256,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -631,6 +637,12 @@
           "t": 1791429812600,
           "s": "up",
           "ms": 203
+        },
+        {
+          "t": 1791444033110,
+          "s": "up",
+          "ms": 256,
+          "c": 200
         }
       ],
       "daily": [
@@ -740,11 +752,11 @@
         },
         {
           "d": "2026-10-08",
-          "n": 1,
+          "n": 2,
           "down": 0,
           "deg": 0,
-          "sum": 203,
-          "max": 203
+          "sum": 459,
+          "max": 256
         }
       ],
       "uptime": {
@@ -754,7 +766,7 @@
         "quarter": 1
       },
       "latency": {
-        "avg": 346,
+        "avg": 344,
         "p95": 421,
         "min": 144,
         "max": 5638
@@ -775,8 +787,8 @@
       "state": {
         "status": "up",
         "since": 1790340784572,
-        "lastCheck": 1791421532787,
-        "lastLatency": 387,
+        "lastCheck": 1791444035024,
+        "lastLatency": 616,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -1005,6 +1017,12 @@
           "t": 1791429812600,
           "s": "up",
           "ms": 387
+        },
+        {
+          "t": 1791444035024,
+          "s": "up",
+          "ms": 616,
+          "c": 200
         }
       ],
       "daily": [
@@ -1114,11 +1132,11 @@
         },
         {
           "d": "2026-10-08",
-          "n": 1,
+          "n": 2,
           "down": 0,
           "deg": 0,
-          "sum": 387,
-          "max": 387
+          "sum": 1003,
+          "max": 616
         }
       ],
       "uptime": {
@@ -1150,8 +1168,8 @@
       "state": {
         "status": "up",
         "since": 1790340784579,
-        "lastCheck": 1791421531656,
-        "lastLatency": 342,
+        "lastCheck": 1791444033882,
+        "lastLatency": 370,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -1380,6 +1398,12 @@
           "t": 1791429812600,
           "s": "up",
           "ms": 342
+        },
+        {
+          "t": 1791444033882,
+          "s": "up",
+          "ms": 370,
+          "c": 200
         }
       ],
       "daily": [
@@ -1489,11 +1513,11 @@
         },
         {
           "d": "2026-10-08",
-          "n": 1,
+          "n": 2,
           "down": 0,
           "deg": 0,
-          "sum": 342,
-          "max": 342
+          "sum": 712,
+          "max": 370
         }
       ],
       "uptime": {
@@ -1503,7 +1527,7 @@
         "quarter": 1
       },
       "latency": {
-        "avg": 498,
+        "avg": 496,
         "p95": 631,
         "min": 246,
         "max": 6761
@@ -1524,8 +1548,8 @@
       "state": {
         "status": "up",
         "since": 1790340786346,
-        "lastCheck": 1791421533734,
-        "lastLatency": 402,
+        "lastCheck": 1791444036560,
+        "lastLatency": 426,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -1754,6 +1778,12 @@
           "t": 1791429812600,
           "s": "up",
           "ms": 402
+        },
+        {
+          "t": 1791444036560,
+          "s": "up",
+          "ms": 426,
+          "c": 200
         }
       ],
       "daily": [
@@ -1863,11 +1893,11 @@
         },
         {
           "d": "2026-10-08",
-          "n": 1,
+          "n": 2,
           "down": 0,
           "deg": 0,
-          "sum": 402,
-          "max": 402
+          "sum": 828,
+          "max": 426
         }
       ],
       "uptime": {
@@ -1877,7 +1907,7 @@
         "quarter": 1
       },
       "latency": {
-        "avg": 543,
+        "avg": 540,
         "p95": 456,
         "min": 238,
         "max": 9992
@@ -1896,12 +1926,12 @@
       "secure": false,
       "intervalSeconds": 300,
       "state": {
-        "status": "up",
-        "since": 1790341948195,
-        "lastCheck": 1791421531142,
-        "lastLatency": 199,
+        "status": "down",
+        "since": 1791444033266,
+        "lastCheck": 1791444033266,
+        "lastLatency": 207,
         "lastError": "CERT_HAS_EXPIRED: certificate has expired",
-        "consecutiveFailures": 1
+        "consecutiveFailures": 2
       },
       "recent": [
         {
@@ -2128,6 +2158,12 @@
           "t": 1791429812600,
           "s": "down",
           "ms": 199
+        },
+        {
+          "t": 1791444033266,
+          "s": "down",
+          "ms": 207,
+          "e": "CERT_HAS_EXPIRED: certificate has expired"
         }
       ],
       "daily": [
@@ -2237,18 +2273,18 @@
         },
         {
           "d": "2026-10-08",
-          "n": 1,
-          "down": 1,
+          "n": 2,
+          "down": 2,
           "deg": 0,
-          "sum": 199,
-          "max": 199
+          "sum": 406,
+          "max": 207
         }
       ],
       "uptime": {
         "day": 0,
-        "week": 0.9666666666666667,
-        "month": 0.9384615384615385,
-        "quarter": 0.9384615384615385
+        "week": 0.9354838709677419,
+        "month": 0.9242424242424242,
+        "quarter": 0.9242424242424242
       },
       "latency": {
         "avg": 97,
@@ -2272,8 +2308,8 @@
       "state": {
         "status": "up",
         "since": 1790340786693,
-        "lastCheck": 1791421533433,
-        "lastLatency": 552,
+        "lastCheck": 1791444035789,
+        "lastLatency": 621,
         "lastCode": 200,
         "consecutiveFailures": 0
       },
@@ -2502,6 +2538,12 @@
           "t": 1791429812600,
           "s": "up",
           "ms": 552
+        },
+        {
+          "t": 1791444035789,
+          "s": "up",
+          "ms": 621,
+          "c": 200
         }
       ],
       "daily": [
@@ -2611,11 +2653,11 @@
         },
         {
           "d": "2026-10-08",
-          "n": 1,
+          "n": 2,
           "down": 0,
           "deg": 0,
-          "sum": 552,
-          "max": 552
+          "sum": 1173,
+          "max": 621
         }
       ],
       "uptime": {
@@ -2625,18 +2667,28 @@
         "quarter": 1
       },
       "latency": {
-        "avg": 782,
+        "avg": 779,
         "p95": 741,
         "min": 446,
         "max": 9246
       }
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "leesify-1791444033266",
+      "monitorId": "leesify",
+      "startedAt": 1791444033266,
+      "severity": "down",
+      "reason": "CERT_HAS_EXPIRED: certificate has expired",
+      "issue": 1,
+      "issueUrl": "https://github.com/9leedev/leesifystatus/issues/1"
+    }
+  ],
   "counts": {
-    "up": 7,
+    "up": 6,
     "degraded": 0,
-    "down": 0,
+    "down": 1,
     "paused": 0,
     "pending": 0
   }

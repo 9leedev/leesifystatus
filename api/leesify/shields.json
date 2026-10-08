@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
   "label": "Leesify",
-  "message": "up",
-  "color": "brightgreen"
+  "message": "down",
+  "color": "red"
 }

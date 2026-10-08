@@ -11,12 +11,12 @@
   "secure": false,
   "intervalSeconds": 300,
   "state": {
-    "status": "up",
-    "since": 1790341948195,
-    "lastCheck": 1791421531142,
-    "lastLatency": 199,
+    "status": "down",
+    "since": 1791444033266,
+    "lastCheck": 1791444033266,
+    "lastLatency": 207,
     "lastError": "CERT_HAS_EXPIRED: certificate has expired",
-    "consecutiveFailures": 1
+    "consecutiveFailures": 2
   },
   "recent": [
     {
@@ -243,6 +243,12 @@
       "t": 1791429812600,
       "s": "down",
       "ms": 199
+    },
+    {
+      "t": 1791444033266,
+      "s": "down",
+      "ms": 207,
+      "e": "CERT_HAS_EXPIRED: certificate has expired"
     }
   ],
   "daily": [
@@ -352,18 +358,18 @@
     },
     {
       "d": "2026-10-08",
-      "n": 1,
-      "down": 1,
+      "n": 2,
+      "down": 2,
       "deg": 0,
-      "sum": 199,
-      "max": 199
+      "sum": 406,
+      "max": 207
     }
   ],
   "uptime": {
     "day": 0,
-    "week": 0.9666666666666667,
-    "month": 0.9384615384615385,
-    "quarter": 0.9384615384615385
+    "week": 0.9354838709677419,
+    "month": 0.9242424242424242,
+    "quarter": 0.9242424242424242
   },
   "latency": {
     "avg": 97,
@@ -371,5 +377,15 @@
     "min": 20,
     "max": 2140
   },
-  "incidents": []
+  "incidents": [
+    {
+      "id": "leesify-1791444033266",
+      "monitorId": "leesify",
+      "startedAt": 1791444033266,
+      "severity": "down",
+      "reason": "CERT_HAS_EXPIRED: certificate has expired",
+      "issue": 1,
+      "issueUrl": "https://github.com/9leedev/leesifystatus/issues/1"
+    }
+  ]
 }
