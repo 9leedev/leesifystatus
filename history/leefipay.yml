@@ -3,22 +3,22 @@ name: LeeFi Pay
 target: https://leefipay.com
 status: up
 since: 2026-09-25T12:53:04.515Z
-lastUpdated: 2026-10-09T23:14:04.306Z
+lastUpdated: 2026-10-10T02:25:15.220Z
 consecutiveFailures: 0
 consecutiveDegraded: 0
 today:
-  d: 2026-10-09
-  n: 5
-  down: 0
-  deg: 0
-  sum: 742
-  max: 303
-window:
-  d: 2026-10-09T21:58:07.403Z
+  d: 2026-10-10
   n: 1
   down: 0
   deg: 0
-  sum: 148
-  max: 148
-responseTime: 148
+  sum: 189
+  max: 189
+window:
+  d: 2026-10-09T21:58:07.403Z
+  n: 2
+  down: 0
+  deg: 0
+  sum: 337
+  max: 189
+responseTime: 189
 code: 200
