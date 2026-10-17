@@ -3,22 +3,22 @@ name: Leesify App
 target: https://leesifyapp.com
 status: up
 since: 2026-09-25T12:53:04.254Z
-lastUpdated: 2026-10-17T10:38:30.374Z
+lastUpdated: 2026-10-17T13:57:15.989Z
 consecutiveFailures: 0
 consecutiveDegraded: 0
 today:
   d: 2026-10-17
-  n: 3
+  n: 4
   down: 0
   deg: 0
-  sum: 586
+  sum: 815
   max: 252
 window:
   d: 2026-10-17T09:51:43.588Z
-  n: 1
+  n: 2
   down: 0
   deg: 0
-  sum: 143
-  max: 143
-responseTime: 143
+  sum: 372
+  max: 229
+responseTime: 229
 code: 200
