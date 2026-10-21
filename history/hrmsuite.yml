@@ -3,22 +3,22 @@ name: HRM Suite
 target: http://hrmsuite.app.altifysolutions.com
 status: up
 since: 2026-09-25T12:53:06.346Z
-lastUpdated: 2026-10-21T05:28:21.793Z
+lastUpdated: 2026-10-21T10:31:46.534Z
 consecutiveFailures: 0
 consecutiveDegraded: 0
 today:
   d: 2026-10-21
+  n: 3
+  down: 0
+  deg: 0
+  sum: 1044
+  max: 394
+window:
+  d: 2026-10-21T02:22:09.669Z
   n: 2
   down: 0
   deg: 0
-  sum: 650
-  max: 380
-window:
-  d: 2026-10-21T02:22:09.669Z
-  n: 1
-  down: 0
-  deg: 0
-  sum: 270
-  max: 270
-responseTime: 270
+  sum: 664
+  max: 394
+responseTime: 394
 code: 200
