@@ -3,22 +3,22 @@ name: Client Portal
 target: http://client.app.altifysolutions.com
 status: up
 since: 2026-09-25T12:53:04.579Z
-lastUpdated: 2026-10-26T00:37:55.695Z
+lastUpdated: 2026-10-26T05:19:32.457Z
 consecutiveFailures: 0
 consecutiveDegraded: 0
 today:
   d: 2026-10-26
-  n: 1
+  n: 2
   down: 0
   deg: 0
-  sum: 1461
+  sum: 1842
   max: 1461
 window:
   d: 2026-10-26T02:08:31.506Z
-  n: 0
+  n: 1
   down: 0
   deg: 0
-  sum: 0
-  max: 0
-responseTime: 1461
+  sum: 381
+  max: 381
+responseTime: 381
 code: 200
