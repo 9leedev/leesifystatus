@@ -3,22 +3,22 @@ name: Leesify Technologies
 target: http://leesifytechnologies.com
 status: up
 since: 2026-09-25T12:53:06.693Z
-lastUpdated: 2026-10-29T02:48:59.560Z
+lastUpdated: 2026-10-29T09:01:50.709Z
 consecutiveFailures: 0
 consecutiveDegraded: 0
 today:
   d: 2026-10-29
+  n: 2
+  down: 0
+  deg: 0
+  sum: 1129
+  max: 642
+window:
+  d: 2026-10-29T03:18:02.356Z
   n: 1
   down: 0
   deg: 0
-  sum: 487
-  max: 487
-window:
-  d: 2026-10-29T03:18:02.356Z
-  n: 0
-  down: 0
-  deg: 0
-  sum: 0
-  max: 0
-responseTime: 487
+  sum: 642
+  max: 642
+responseTime: 642
 code: 200
