@@ -19,7 +19,7 @@ product, git is the database — with a Next.js status site in place of Sapper.
 | 🟩 [Leesify](https://leesify.com) | up | 50 ms | 100.00% | 100.00% | 98.08% | 96.79% | [graph](./graphs/leesify.svg) |
 | 🟩 [Leesify Technologies](http://leesifytechnologies.com) | up | 436 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/leesifytechnologies.svg) |
 
-_Updated 2026-10-30 00:54 UTC by [the uptime workflow](../../actions/workflows/uptime.yml)._
+_Updated 2026-10-30 06:25 UTC by [the uptime workflow](../../actions/workflows/uptime.yml)._
 <!-- upsite:status:end -->
 
 ---
