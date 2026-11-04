@@ -3,22 +3,22 @@ name: Client Portal
 target: http://client.app.altifysolutions.com
 status: up
 since: 2026-09-25T12:53:04.579Z
-lastUpdated: 2026-11-04T17:27:27.972Z
-consecutiveFailures: 1
+lastUpdated: 2026-11-04T22:49:28.994Z
+consecutiveFailures: 0
 consecutiveDegraded: 0
 today:
   d: 2026-11-04
-  n: 3
+  n: 4
   down: 1
   deg: 0
-  sum: 10738
+  sum: 11081
   max: 10000
 window:
   d: 2026-11-04T13:25:56.640Z
-  n: 1
+  n: 2
   down: 1
   deg: 0
-  sum: 10000
+  sum: 10343
   max: 10000
-responseTime: 10000
-error: Timed out after 10000ms
+responseTime: 343
+code: 200
