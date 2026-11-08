@@ -11,15 +11,15 @@ product, git is the database — with a Next.js status site in place of Sapper.
 
 | Monitor | Status | Response | 24h | 7d | 30d | 90d | Graph |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 🟩 [LeeFi Pay](https://leefipay.com) | up | 114 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/leefipay.svg) |
-| 🟩 [Leesify App](https://leesifyapp.com) | up | 190 ms | 100.00% | 96.15% | 99.35% | 99.56% | [graph](./graphs/leesifyapp.svg) |
+| 🟩 [LeeFi Pay](https://leefipay.com) | up | 109 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/leefipay.svg) |
+| 🟩 [Leesify App](https://leesifyapp.com) | up | 157 ms | 100.00% | 96.30% | 99.35% | 99.56% | [graph](./graphs/leesifyapp.svg) |
 | 🟩 [Tixvora](https://tixvora.com) | up | 43 ms | 100.00% | 100.00% | 100.00% | 100.00% | [graph](./graphs/tixvora.svg) |
-| 🟩 [Client Portal](http://client.app.altifysolutions.com) | up | 280 ms | 100.00% | 96.15% | 99.35% | 99.56% | [graph](./graphs/client-portal.svg) |
-| 🟩 [HRM Suite](http://hrmsuite.app.altifysolutions.com) | up | 266 ms | 100.00% | 96.15% | 99.35% | 99.56% | [graph](./graphs/hrmsuite.svg) |
-| 🟩 [Leesify](https://leesify.com) | up | 77 ms | 100.00% | 100.00% | 99.35% | 97.36% | [graph](./graphs/leesify.svg) |
-| 🟩 [Leesify Technologies](http://leesifytechnologies.com) | up | 429 ms | 100.00% | 96.15% | 99.35% | 99.56% | [graph](./graphs/leesifytechnologies.svg) |
+| 🟩 [Client Portal](http://client.app.altifysolutions.com) | up | 312 ms | 100.00% | 96.30% | 99.35% | 99.56% | [graph](./graphs/client-portal.svg) |
+| 🟩 [HRM Suite](http://hrmsuite.app.altifysolutions.com) | up | 456 ms | 100.00% | 96.30% | 99.35% | 99.56% | [graph](./graphs/hrmsuite.svg) |
+| 🟩 [Leesify](https://leesify.com) | up | 97 ms | 100.00% | 100.00% | 99.35% | 97.37% | [graph](./graphs/leesify.svg) |
+| 🟩 [Leesify Technologies](http://leesifytechnologies.com) | up | 658 ms | 100.00% | 96.30% | 99.35% | 99.56% | [graph](./graphs/leesifytechnologies.svg) |
 
-_Updated 2026-11-08 10:39 UTC by [the uptime workflow](../../actions/workflows/uptime.yml)._
+_Updated 2026-11-08 16:47 UTC by [the uptime workflow](../../actions/workflows/uptime.yml)._
 <!-- upsite:status:end -->
 
 ---
