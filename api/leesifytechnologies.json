@@ -13,10 +13,10 @@
   "state": {
     "status": "up",
     "since": 1790340786693,
-    "lastCheck": 1795110229549,
-    "lastLatency": 9999,
-    "lastError": "Timed out after 10000ms",
-    "consecutiveFailures": 1
+    "lastCheck": 1795132491184,
+    "lastLatency": 553,
+    "lastCode": 200,
+    "consecutiveFailures": 0
   },
   "recent": [
     {
@@ -960,10 +960,10 @@
       "ms": 515
     },
     {
-      "t": 1795110229549,
+      "t": 1795132491184,
       "s": "up",
-      "ms": 9999,
-      "e": "Timed out after 10000ms"
+      "ms": 553,
+      "c": 200
     }
   ],
   "daily": [
@@ -1409,24 +1409,24 @@
     },
     {
       "d": "2026-11-19",
-      "n": 3,
+      "n": 4,
       "down": 1,
       "deg": 0,
-      "sum": 11155,
+      "sum": 11708,
       "max": 9999
     }
   ],
   "uptime": {
-    "day": 0.6666666666666666,
-    "week": 0.96,
-    "month": 0.9849624060150376,
-    "quarter": 0.9925373134328358
+    "day": 0.75,
+    "week": 0.9615384615384616,
+    "month": 0.9850746268656716,
+    "quarter": 0.9925650557620818
   },
   "latency": {
-    "avg": 695,
-    "p95": 811,
+    "avg": 644,
+    "p95": 807,
     "min": 436,
-    "max": 9999
+    "max": 9246
   },
   "incidents": []
 }
