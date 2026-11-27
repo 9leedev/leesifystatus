@@ -11,13 +11,13 @@
   "secure": false,
   "intervalSeconds": 300,
   "state": {
-    "status": "up",
-    "since": 1790340784515,
-    "lastCheck": 1795776315371,
-    "lastLatency": 81,
+    "status": "down",
+    "since": 1795808473626,
+    "lastCheck": 1795808473626,
+    "lastLatency": 117,
     "lastCode": 403,
     "lastError": "Unexpected status 403 Forbidden",
-    "consecutiveFailures": 1
+    "consecutiveFailures": 2
   },
   "recent": [
     {
@@ -1054,6 +1054,13 @@
       "t": 1795794367039,
       "s": "down",
       "ms": 100
+    },
+    {
+      "t": 1795808473626,
+      "s": "down",
+      "ms": 117,
+      "c": 403,
+      "e": "Unexpected status 403 Forbidden"
     }
   ],
   "daily": [
@@ -1563,18 +1570,18 @@
     },
     {
       "d": "2026-11-27",
-      "n": 2,
-      "down": 1,
+      "n": 3,
+      "down": 2,
       "deg": 0,
-      "sum": 199,
+      "sum": 316,
       "max": 118
     }
   ],
   "uptime": {
-    "day": 0.5,
-    "week": 0.95,
-    "month": 0.990909090909091,
-    "quarter": 0.9965753424657534
+    "day": 0.3333333333333333,
+    "week": 0.9047619047619048,
+    "month": 0.9819819819819819,
+    "quarter": 0.9931740614334471
   },
   "latency": {
     "avg": 151,
@@ -1582,5 +1589,15 @@
     "min": 74,
     "max": 751
   },
-  "incidents": []
+  "incidents": [
+    {
+      "id": "leefipay-1795808473626",
+      "monitorId": "leefipay",
+      "startedAt": 1795808473626,
+      "severity": "down",
+      "reason": "Unexpected status 403 Forbidden",
+      "issue": 2,
+      "issueUrl": "https://github.com/9leedev/leesifystatus/issues/2"
+    }
+  ]
 }

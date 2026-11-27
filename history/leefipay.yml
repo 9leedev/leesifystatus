@@ -1,25 +1,34 @@
 id: leefipay
 name: LeeFi Pay
 target: https://leefipay.com
-status: up
-since: 2026-09-25T12:53:04.515Z
-lastUpdated: 2026-11-27T10:45:15.371Z
-consecutiveFailures: 1
+status: down
+since: 2026-11-27T19:41:13.626Z
+lastUpdated: 2026-11-27T19:41:13.626Z
+consecutiveFailures: 2
 consecutiveDegraded: 0
 today:
   d: 2026-11-27
-  n: 2
-  down: 1
+  n: 3
+  down: 2
   deg: 0
-  sum: 199
+  sum: 316
   max: 118
 window:
   d: 2026-11-27T15:46:07.039Z
-  n: 0
-  down: 0
+  n: 1
+  down: 1
   deg: 0
-  sum: 0
-  max: 0
-responseTime: 81
+  sum: 117
+  max: 117
+responseTime: 117
 code: 403
 error: Unexpected status 403 Forbidden
+incident:
+  id: leefipay-1795808473626
+  startedAt: 1795808473626
+  severity: down
+  reason: Unexpected status 403 Forbidden
+  issue: 2
+  issueUrl: https://github.com/9leedev/leesifystatus/issues/2
+  lastCommentAt: 1795808473626
+  lastCommentReason: Unexpected status 403 Forbidden
