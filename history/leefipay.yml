@@ -3,22 +3,23 @@ name: LeeFi Pay
 target: https://leefipay.com
 status: up
 since: 2026-09-25T12:53:04.515Z
-lastUpdated: 2026-11-27T01:57:24.957Z
-consecutiveFailures: 0
+lastUpdated: 2026-11-27T10:45:15.371Z
+consecutiveFailures: 1
 consecutiveDegraded: 0
 today:
   d: 2026-11-27
-  n: 1
-  down: 0
+  n: 2
+  down: 1
   deg: 0
-  sum: 118
+  sum: 199
   max: 118
 window:
   d: 2026-11-27T01:15:13.023Z
-  n: 1
-  down: 0
+  n: 2
+  down: 1
   deg: 0
-  sum: 118
+  sum: 199
   max: 118
-responseTime: 118
-code: 200
+responseTime: 81
+code: 403
+error: Unexpected status 403 Forbidden
