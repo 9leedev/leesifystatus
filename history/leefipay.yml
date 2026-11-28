@@ -14,12 +14,12 @@ today:
   sum: 316
   max: 118
 window:
-  d: 2026-11-27T15:46:07.039Z
-  n: 1
-  down: 1
+  d: 2026-11-28T00:48:23.676Z
+  n: 0
+  down: 0
   deg: 0
-  sum: 117
-  max: 117
+  sum: 0
+  max: 0
 responseTime: 117
 code: 403
 error: Unexpected status 403 Forbidden
