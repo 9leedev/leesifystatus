@@ -13,11 +13,11 @@
   "state": {
     "status": "down",
     "since": 1795808473626,
-    "lastCheck": 1795808473626,
-    "lastLatency": 117,
+    "lastCheck": 1795831974304,
+    "lastLatency": 123,
     "lastCode": 403,
     "lastError": "Unexpected status 403 Forbidden",
-    "consecutiveFailures": 2
+    "consecutiveFailures": 3
   },
   "recent": [
     {
@@ -1059,6 +1059,13 @@
       "t": 1795826903676,
       "s": "down",
       "ms": 117
+    },
+    {
+      "t": 1795831974304,
+      "s": "down",
+      "ms": 123,
+      "c": 403,
+      "e": "Unexpected status 403 Forbidden"
     }
   ],
   "daily": [
@@ -1573,13 +1580,21 @@
       "deg": 0,
       "sum": 316,
       "max": 118
+    },
+    {
+      "d": "2026-11-28",
+      "n": 1,
+      "down": 1,
+      "deg": 0,
+      "sum": 123,
+      "max": 123
     }
   ],
   "uptime": {
-    "day": 0.3333333333333333,
-    "week": 0.9047619047619048,
-    "month": 0.9819819819819819,
-    "quarter": 0.9931740614334471
+    "day": 0,
+    "week": 0.8333333333333334,
+    "month": 0.9722222222222222,
+    "quarter": 0.9897959183673469
   },
   "latency": {
     "avg": 151,
